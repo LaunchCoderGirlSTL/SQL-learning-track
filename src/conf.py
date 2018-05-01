@@ -6,8 +6,8 @@ from recommonmark.transform import AutoStructify
 # Customize for the specific site. Any options in the html_theme_options
 # dictionary below may be overriden here
 site_theme_options = {
-    'navbar_title': 'CoderGirl',
-    'navbar_site_name': "Pages",
+    'navbar_title': 'CoderGirl SQL',
+    'navbar_site_name': "Lessons",
     'bootswatch_theme': 'launchcode',
 }
 

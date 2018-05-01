@@ -1,4 +1,4 @@
-# Lesson 1
+# Lesson 1: Ice breakers and database introduction
 ## Learning Objectives
 * What a database is
   - It is not a spreadsheet

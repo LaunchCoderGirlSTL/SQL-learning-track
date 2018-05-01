@@ -1,4 +1,4 @@
-# Lesson 2
+# Lesson 2: Writing SELECT Queries
 ## Learning Objectives
 * Know how to get around in SQL Server Management Studio
 * Given a table name, write a query that returns all columns and rows
