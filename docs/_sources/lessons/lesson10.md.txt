@@ -19,8 +19,4 @@
 ## Assignments
 Watch videos and do problem set in the folder.
 
-Read
-
-https://www.mssqltips.com/sqlservertip/1387/union-vs-union-all-in-sql-server/
-
-https://www.mssqltips.com/sqlservertip/1327/compare-sql-server-datasets-with-intersect-and-except/ (Links to an external site.)Links to an external site.
+Read this [article](https://www.mssqltips.com/sqlservertip/1387/union-vs-union-all-in-sql-server/) on `UNION` and `UNION ALL` and this [article](https://www.mssqltips.com/sqlservertip/1327/compare-sql-server-datasets-with-intersect-and-except/) on `INTERSECT` and `EXCEPT`.

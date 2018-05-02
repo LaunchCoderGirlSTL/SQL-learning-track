@@ -11,4 +11,4 @@
 ## In-class Work
 
 ## Assignments
-Read this article (Links to an external site.)Links to an external site. starting from the "Adding parameters to a report" section.
+Read this [article](https://www.red-gate.com/simple-talk/sql/reporting-services/sql-server-reporting-services-basics-building-ssrs-reports/) starting from the "Adding parameters to a report" section.

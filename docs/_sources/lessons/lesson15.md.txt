@@ -15,4 +15,4 @@
 ## Assignments
 Zero to SQL chapters 11, 13, and 17
 
-Refer to https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql (Links to an external site.)Links to an external site. for more information about data types.
+Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql) for more information about data types.

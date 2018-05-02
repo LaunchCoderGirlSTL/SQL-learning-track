@@ -10,6 +10,6 @@
 ## In-class Work
 
 ## Assignments
-Take a look at the second SSRS article (Links to an external site.)Links to an external site. starting with the Grouping section.
+Take a look at the second [SSRS article](https://www.red-gate.com/simple-talk/sql/reporting-services/sql-server-reporting-services-basics-customizing-ssrs-reports/) starting with the Grouping section.
 
 Create the required reports using the AdventureWorks2014 database. Run the report and export as PDF files. Upload the PDF. IMPORTANT: make sure that your report fits on the page!!
