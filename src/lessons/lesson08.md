@@ -1,10 +1,10 @@
 # Lesson 8: Joining Tables
 
 ## Learning Objectives
-* Write queries that use INNER JOIN to join two or more tables in one query
-* Write queries that use LEFT OUTER JOIN to join two or more tables in one query
+* Write queries that use `INNER JOIN` to join two or more tables in one query
+* Write queries that use `LEFT OUTER JOIN` to join two or more tables in one query
 * Use all query features, such as aliases, expressions, and ordering when joining tables
-* Understand why INNER and OUTER joins are different
+* Understand why `INNER` and `OUTER` joins are different
 
 ## Prep Work
 

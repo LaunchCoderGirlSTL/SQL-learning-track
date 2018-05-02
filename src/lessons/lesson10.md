@@ -3,14 +3,14 @@
 ## Learning Objectives
 * Know where to find information about the built-in functions in T-SQL
 * Understand how to use common functions
-  - GETDATE, SYSDATETIME
-  - ISNULL, COALESCE
-  - CAST, CONVERT
-  - DATEADD, DATEDIFF
-  - LEFT, RIGHT
-  - CHARINDEX
-  - REVERSE
-* Know how to use the CASE statement in the SELECT and ORDER BY clauses
+  - `GETDATE`, `SYSDATETIME`
+  - `ISNULL`, `COALESCE`
+  - `CAST`, `CONVERT`
+  - `DATEADD`, `DATEDIFF`
+  - `LEFT`, `RIGHT`
+  - `CHARINDEX`
+  - `REVERSE`
+* Know how to use the `CASE` statement in the `SELECT` and `ORDER BY` clauses
 
 ## Prep Work
 

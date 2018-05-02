@@ -3,14 +3,14 @@
 ## Learning Objectives
 * Understand date time data types
 * Understand character data types (varchar vs char, etc)
-* MAX data types
+* `MAX` data types
 * Understand number data types (int vs bigint, etc)
 * Using an identity column
 * Special data types
 * Hierarchyid
 * Unique identifier
 * Using default values
-* Understand NULL vs NOT NULL
+* Understand `NULL` vs `NOT NULL`
 
 ## Prep Work
 

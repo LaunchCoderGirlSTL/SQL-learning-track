@@ -14,4 +14,4 @@
 ## Prep Work
 ## In-class Work
 ## Assignments
-Answer the following questions once you have completed the installations and restores. If you have trouble and don't think you'll be able to get them completed by the next class, please take this quiz. We'll spend some time troubleshooting installations that night.
+Complete the quiz in Canvas only AFTER you complete the installations and restores. If you are having trouble with the installations, please complete the quiz anyway. There will be time during the next class to troubleshoot installations.

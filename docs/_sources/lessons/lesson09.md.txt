@@ -1,9 +1,9 @@
 # Lesson 9: UNION and IN Subqueries
 
 ## Learning Objectives
-* Write queries that use UNION, UNION ALL, EXCEPT or INTERSECT
-* Write queries that use a subquery in the WHERE clause using IN
-* Understand the difference between UNION, UNION ALL, EXCEPT and INTERSECT
+* Write queries that use `UNION`, `UNION ALL`, `EXCEPT` or `INTERSECT`
+* Write queries that use a subquery in the `WHERE` clause using `IN`
+* Understand the difference between `UNION`, `UNION ALL`, `EXCEPT` and `INTERSECT`
 
 ## Prep Work
 

@@ -12,6 +12,6 @@
 ## In-class Work
 
 ## Assignments
-Read Chapter 8 of Zero to SQL starting with the MIN section.
+Read Chapter 8 of Zero to SQL starting with the `MIN` section.
 
 Use the AdventureWorks2014 database to answer these questions.
