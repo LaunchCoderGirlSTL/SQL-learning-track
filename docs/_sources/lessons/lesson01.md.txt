@@ -12,6 +12,11 @@
   - Rows
 
 ## Prep Work
+
+
 ## In-class Work
+
+<a href="files/Connection_issues.pdf" download>Click to Download</a>
+
 ## Assignments
 Complete the quiz in Canvas only AFTER you complete the installations and restores. If you are having trouble with the installations, please complete the quiz anyway. There will be time during the next class to troubleshoot installations.
