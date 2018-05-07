@@ -35,3 +35,4 @@ Resources
    :maxdepth: 1
 
    files/connection_issues
+   files/how_to_restore_a_database
