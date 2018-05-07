@@ -7,7 +7,7 @@ Lessons
 =======
 
 .. toctree::
-   :maxdepth: 20
+   :maxdepth: 1
 
    lessons/lesson01
    lessons/lesson02
