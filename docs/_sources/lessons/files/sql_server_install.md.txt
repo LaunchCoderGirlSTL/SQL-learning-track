@@ -30,3 +30,30 @@ These instructions are meant for learning SQL Server, not for a production insta
 14. On the Ready to Install page, click Install.
 ![screenshot13](../../_static/images/screenshots/week1/sqlserverinstall/screenshot13.jpg)
 15. Once the installation is complete, restart if necessary.
+
+## Installation of Service Pack 1
+The service pack is required for fixes and new features. Install Service Pack 1 if the original media did not come with it.
+1. Download the [service pack](https://www.microsoft.com/en-us/download) file.
+2. Double-click the file.
+![screenshot14](../../_static/images/screenshots/week1/sqlserverinstall/screenshot14.jpg)
+3. Wait while the files extract and the installation wizard kicks off.
+![screenshot15](../../_static/images/screenshots/week1/sqlserverinstall/screenshot15.jpg)
+4. On the License Terms page, check I accept the license terms and click Next.
+![screenshot16](../../_static/images/screenshots/week1/sqlserverinstall/screenshot16.jpg)
+5. On the Select Features page, make sure everything is selected and click Next.
+![screenshot17](../../_static/images/screenshots/week1/sqlserverinstall/screenshot17.jpg)
+6. Click through the rest of the wizard. Restart if required.
+
+## Install SQL Server Management Studio
+SQL Server Management Studio (SSMS) is used to manage SQL Server and provides a place to write queries. In previous versions, SSMS was installed with SQL Server. In order for Microsoft to provide frequent updates, it is now a separate download. You can find the link from the SQL Server media.
+1. Launch the SQL Server Installation Center by double-clicking Setup in the SQL Server installation media.
+![screenshot18](../../_static/images/screenshots/week1/sqlserverinstall/screenshot18.jpg)
+2. On the Installation page, click Install SQL Server Management Tools.
+![screenshot19](../../_static/images/screenshots/week1/sqlserverinstall/screenshot19.jpg)
+3. This will launch a page where you can download the latest SSMS file.
+![screenshot20](../../_static/images/screenshots/week1/sqlserverinstall/screenshot20.jpg)
+4. Double-click the file to launch the installation.
+![screenshot21](../../_static/images/screenshots/week1/sqlserverinstall/screenshot21.jpg)
+5. Click Install.
+![screenshot22](../../_static/images/screenshots/week1/sqlserverinstall/screenshot22.jpg)
+6. Restart if required.
