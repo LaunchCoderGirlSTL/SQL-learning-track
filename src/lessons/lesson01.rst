@@ -36,3 +36,4 @@ Resources
 
    files/connection_issues
    files/how_to_restore_a_database
+   files/sql_server_install
