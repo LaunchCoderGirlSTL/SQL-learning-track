@@ -22,7 +22,8 @@ In-class Work
 -------------
 
 Ice breakers and Installs!
-If you are having trouble connecting, please check out this doc
+Linked below are resources to help you with the installation and troubleshooting some common SQL problems.
+Here is the `presentation <https://github.com/LaunchCoderGirlSTL/SQL-Materials/blob/master/Week1.pdf/>`_ from the first day of class.
 
 Assignments
 -----------
