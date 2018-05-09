@@ -293,6 +293,82 @@
 <li>Restart if required.</li>
 </ol>
 </div>
+<div class="section" id="attach-adventureworkslt-database">
+<span id="attach-adventureworkslt-database"></span><h2>Attach AdventureWorksLT database<a class="headerlink" href="#attach-adventureworkslt-database" title="Permalink to this headline">¶</a></h2>
+<p>This database is used in the EdX course. The available file is an MDF file, which is an actual database file. It will be attached to the SQL Server, not restored.</p>
+<ol class="simple">
+<li>Download the <a class="reference external" href="https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks">AdventureWorks2012LT database file</a>.</li>
+<li>Copy the file to this location <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Microsoft</span> <span class="pre">SQL</span> <span class="pre">Server\MSSQL13.MSSQLSERVER\MSSQL\DATA</span></code> . If you have a named instance, the path will be slightly different. Replace MSSQLSERVER with the instance name.
+<img alt="screenshot23" src="../../_images/screenshot23.jpg" /></li>
+<li>Locate SQL Server Management Studio and run it. You will probably want to create a shortcut in the taskbar or desktop because you will be using this program often.
+<img alt="screenshot24" src="../../_images/screenshot24.jpg" /></li>
+<li>Connect to the instance of SQL Server that you installed and click Connect.
+<img alt="screenshot25" src="../../_images/screenshot25.jpg" /></li>
+<li>If you have installed a named instance, you will need to supply the instance name after a backslash.
+<img alt="screenshot26" src="../../_images/screenshot26.jpg" /></li>
+<li>The Object Explorer will open on the left. Expand Databases.
+<img alt="screenshot27" src="../../_images/screenshot27.jpg" /></li>
+<li>Right-click Databases and select Attach…
+<img alt="screenshot28" src="../../_images/screenshot28.jpg" /></li>
+<li>Click Add on the Attach Databases dialog.
+<img alt="screenshot29" src="../../_images/screenshot29.jpg" /></li>
+<li>Select the AdventureWorksLT2012_Data.mdf file and click OK.
+<img alt="screenshot30" src="../../_images/screenshot30.jpg" /></li>
+<li>Click OK on the Attach Databases dialog. You should see the new database in the Object Explorer window.
+<img alt="screenshot31" src="../../_images/screenshot311.jpg" /></li>
+</ol>
+</div>
+<div class="section" id="restore-the-adventureworks2014-database">
+<span id="restore-the-adventureworks2014-database"></span><h2>Restore the AdventureWorks2014 database.<a class="headerlink" href="#restore-the-adventureworks2014-database" title="Permalink to this headline">¶</a></h2>
+<p>This database is used in the auntkathisql.com exercises as well as many examples and books. It can be downloaded as a backup file which must be restored.</p>
+<ol class="simple">
+<li>Download the <a class="reference external" href="https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks">AdventureWorks 2014 Full DatbaseBackup.zip file</a>.
+<img alt="screenshot32" src="../../_images/screenshot321.jpg" /></li>
+<li>Extract the file by right-clicking and selecting Extract All.</li>
+<li>Launch SSMS and connect to your SQL Server.</li>
+<li>Right-click on Databases and select Restore Database.
+<img alt="screenshot33" src="../../_images/screenshot33.jpg" /></li>
+<li>This opens the Restore Database dialog. Select Device and click the ellipsis.
+<img alt="screenshot34" src="../../_images/screenshot34.jpg" /></li>
+<li>This pops up the Select backup devices dialog. Click Add and navigate to the bak file.
+<img alt="screenshot35" src="../../_images/screenshot35.jpg" /></li>
+<li>Click OK three times to select the files and kick off the restore.</li>
+<li>Click OK to dismiss the dialog once the restore is complete.
+<img alt="screenshot36" src="../../_images/screenshot36.jpg" /></li>
+<li>You should now see the new database in the Object Explorer.
+<img alt="screenshot37" src="../../_images/screenshot37.jpg" /></li>
+</ol>
+</div>
+<div class="section" id="restore-the-northwind-database">
+<span id="restore-the-northwind-database"></span><h2>Restore the Northwind Database<a class="headerlink" href="#restore-the-northwind-database" title="Permalink to this headline">¶</a></h2>
+<p>This is the new sample database. It will be used in some of the homework assignments.</p>
+<ol class="simple">
+<li>Download the <a class="reference external" href="https://www.microsoft.com/en-us/download/details.aspx?id=23654">backup file</a>.</li>
+<li>Except for unzipping, follow the instructions in the Restore AdventureWorks2014 database
+section.</li>
+</ol>
+</div>
+<div class="section" id="installing-sql-server-data-tools">
+<span id="installing-sql-server-data-tools"></span><h2>Installing SQL Server Data Tools<a class="headerlink" href="#installing-sql-server-data-tools" title="Permalink to this headline">¶</a></h2>
+<p>SSDT will be used in the Reporting Services portion of the class.</p>
+<ol class="simple">
+<li>Launch the SQL Server Installation Center by double-clicking Setup in the SQL Server installation media.
+<img alt="screenshot38" src="../../_images/screenshot38.jpg" /></li>
+<li>On the Installation page, click Install SQL Server Data Tools.
+<img alt="screenshot39" src="../../_images/screenshot39.jpg" /></li>
+<li>This will take you to a download page where you can get the latest version.
+<img alt="screenshot40" src="../../_images/screenshot40.jpg" /></li>
+<li>Double-click the file.
+<img alt="screenshot41" src="../../_images/screenshot411.jpg" /></li>
+<li>Double-click SSDTSETUP.EXE to launch the installation.
+<img alt="screenshot42" src="../../_images/screenshot421.jpg" /></li>
+<li>In this class, we will be working with Reporting Services, but not Analysis Services or Integration Services. You can uncheck those boxes and click Next.
+<img alt="screenshot43" src="../../_images/screenshot43.jpg" /></li>
+<li>Agree to terms and conditions and click Next.
+<img alt="screenshot44" src="../../_images/screenshot44.jpg" /></li>
+<li>Restart after the installation if required.</li>
+</ol>
+</div>
 </div>
 
 

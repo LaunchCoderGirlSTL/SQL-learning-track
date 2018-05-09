@@ -57,3 +57,68 @@ SQL Server Management Studio (SSMS) is used to manage SQL Server and provides a 
 5. Click Install.
 ![screenshot22](../../_static/images/screenshots/week1/sqlserverinstall/screenshot22.jpg)
 6. Restart if required.
+
+## Attach AdventureWorksLT database
+This database is used in the EdX course. The available file is an MDF file, which is an actual database file. It will be attached to the SQL Server, not restored.
+1. Download the [AdventureWorks2012LT database file](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
+2. Copy the file to this location `C:\Program Files\Microsoft SQL
+Server\MSSQL13.MSSQLSERVER\MSSQL\DATA` . If you have a named instance, the path will be slightly different. Replace MSSQLSERVER with the instance name.
+![screenshot23](../../_static/images/screenshots/week1/sqlserverinstall/screenshot23.jpg)
+3. Locate SQL Server Management Studio and run it. You will probably want to create a shortcut in the taskbar or desktop because you will be using this program often.
+![screenshot24](../../_static/images/screenshots/week1/sqlserverinstall/screenshot24.jpg)
+4. Connect to the instance of SQL Server that you installed and click Connect.
+![screenshot25](../../_static/images/screenshots/week1/sqlserverinstall/screenshot25.jpg)
+5. If you have installed a named instance, you will need to supply the instance name after a backslash.
+![screenshot26](../../_static/images/screenshots/week1/sqlserverinstall/screenshot26.jpg)
+6. The Object Explorer will open on the left. Expand Databases.
+![screenshot27](../../_static/images/screenshots/week1/sqlserverinstall/screenshot27.jpg)
+7. Right-click Databases and select Attach...
+![screenshot28](../../_static/images/screenshots/week1/sqlserverinstall/screenshot28.jpg)
+8. Click Add on the Attach Databases dialog.
+![screenshot29](../../_static/images/screenshots/week1/sqlserverinstall/screenshot29.jpg)
+9. Select the AdventureWorksLT2012_Data.mdf file and click OK.
+![screenshot30](../../_static/images/screenshots/week1/sqlserverinstall/screenshot30.jpg)
+10. Click OK on the Attach Databases dialog. You should see the new database in the Object Explorer window.
+![screenshot31](../../_static/images/screenshots/week1/sqlserverinstall/screenshot31.jpg)
+
+## Restore the AdventureWorks2014 database.
+This database is used in the auntkathisql.com exercises as well as many examples and books. It can be downloaded as a backup file which must be restored.
+1. Download the [AdventureWorks 2014 Full DatbaseBackup.zip file](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
+![screenshot32](../../_static/images/screenshots/week1/sqlserverinstall/screenshot32.jpg)
+2. Extract the file by right-clicking and selecting Extract All.
+3. Launch SSMS and connect to your SQL Server.
+4. Right-click on Databases and select Restore Database.
+![screenshot33](../../_static/images/screenshots/week1/sqlserverinstall/screenshot33.jpg)
+5. This opens the Restore Database dialog. Select Device and click the ellipsis.
+![screenshot34](../../_static/images/screenshots/week1/sqlserverinstall/screenshot34.jpg)
+6. This pops up the Select backup devices dialog. Click Add and navigate to the bak file.
+![screenshot35](../../_static/images/screenshots/week1/sqlserverinstall/screenshot35.jpg)
+7. Click OK three times to select the files and kick off the restore.
+8. Click OK to dismiss the dialog once the restore is complete.
+![screenshot36](../../_static/images/screenshots/week1/sqlserverinstall/screenshot36.jpg)
+9. You should now see the new database in the Object Explorer.
+![screenshot37](../../_static/images/screenshots/week1/sqlserverinstall/screenshot37.jpg)
+
+## Restore the Northwind Database
+This is the new sample database. It will be used in some of the homework assignments.
+1. Download the [backup file](https://www.microsoft.com/en-us/download/details.aspx?id=23654).
+2. Except for unzipping, follow the instructions in the Restore AdventureWorks2014 database
+section.
+
+## Installing SQL Server Data Tools
+SSDT will be used in the Reporting Services portion of the class.
+1. Launch the SQL Server Installation Center by double-clicking Setup in the SQL Server installation media.
+![screenshot38](../../_static/images/screenshots/week1/sqlserverinstall/screenshot38.jpg)
+2. On the Installation page, click Install SQL Server Data Tools.
+![screenshot39](../../_static/images/screenshots/week1/sqlserverinstall/screenshot39.jpg)
+3. This will take you to a download page where you can get the latest version.
+![screenshot40](../../_static/images/screenshots/week1/sqlserverinstall/screenshot40.jpg)
+4. Double-click the file.
+![screenshot41](../../_static/images/screenshots/week1/sqlserverinstall/screenshot41.jpg)
+5. Double-click SSDTSETUP.EXE to launch the installation.
+![screenshot42](../../_static/images/screenshots/week1/sqlserverinstall/screenshot42.jpg)
+6. In this class, we will be working with Reporting Services, but not Analysis Services or Integration Services. You can uncheck those boxes and click Next.
+![screenshot43](../../_static/images/screenshots/week1/sqlserverinstall/screenshot43.jpg)
+7. Agree to terms and conditions and click Next.
+![screenshot44](../../_static/images/screenshots/week1/sqlserverinstall/screenshot44.jpg)
+8. Restart after the installation if required.
