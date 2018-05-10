@@ -26,3 +26,8 @@ Read Chapters 1, 2, and 3 in Zero to SQL.
 Always run the examples from the book against the LearnSQL database to help you learn.
 Watch videos and do problem set in the folder for Week 2.
 Complete the quiz. All questions in this quiz are from the Northwind database unless otherwise specified.
+
+.. toctree::
+   :maxdepth: 1
+
+   assignments/problemset02

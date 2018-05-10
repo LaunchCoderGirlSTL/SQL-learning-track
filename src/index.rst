@@ -30,6 +30,21 @@ Lessons
    lessons/lesson19
    lessons/lesson20
 
+Resources
+=========
+
+.. toctree::
+   :maxdepth: 1
+
+   lessons/files/sql_server_install
+
+Solutions
+=========
+
+.. toctree::
+   :maxdepth: 1
+
+   lessons/assignments/solutions/problemsetanswers02
 
 .. _@LaunchCodeEducation: https://github.com/launchcodeeducation
 .. _@LaunchCoderGirl: https://github.com/LaunchCoderGirlSTL
