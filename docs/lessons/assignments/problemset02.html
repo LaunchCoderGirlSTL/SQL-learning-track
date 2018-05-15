@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lesson 3: Database Design" href="../lesson03.html" />
+    <link rel="next" title="Week 2 Problem Set Solutions" href="solutions/problemsetanswers02.html" />
     <link rel="prev" title="Lesson 2: Writing SELECT Queries" href="../lesson02.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -253,27 +253,44 @@ the problems in this exercise.</p>
 <li>Run SSMS and connect to your local SQL Server instance. In the Object Explorer window, expand until you can see the tables in the AdventureWorks2014 database.</li>
 <li>Just using SSMS without typing, create and run queries that return up to 1000 rows from each of these tables: Person.person sales.customer production.product</li>
 <li>What are the two important keywords used in the queries you wrote in Question 2? One means a list of columns to be returned. One tells you which table the data comes from.</li>
-<li>Here is a T-SQL query. The table name is fully qualified with three parts. What does each part refer to? <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">DeptartmentID,</span> <span class="pre">Name</span> <span class="pre">FROM</span> <span class="pre">AdventureWorks2014.HumanResources.Department</span></code></li>
+<li>Here is a T-SQL query. The table name is fully qualified with three parts. What does each part refer to?</li>
 </ol>
-<p>## Exercise 2
-The tools in SSMS are great, but most of the time you will need to type out your T-SQL statement. To get
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">DeptartmentID,</span> <span class="pre">Name</span> <span class="pre">FROM</span> <span class="pre">AdventureWorks2014.HumanResources.Department</span></code></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>The tools in SSMS are great, but most of the time you will need to type out your T-SQL statement. To get
 a query window for typing your queries, you will need to click “New Query” in the menu. Make sure that
-the database listed in the dropdown box is the AdventureWorks2014 database.
-1. What is the difference between these two statements?&lt;br/&gt;
-<code class="docutils literal notranslate"><span class="pre">PRINT</span> <span class="pre">‘Hello</span> <span class="pre">world!’;``&lt;br/&gt;</span>
-<span class="pre">``SELECT</span> <span class="pre">‘Hello</span> <span class="pre">world!’;</span></code>
-2. What are two reasons for using brackets around column and table names?
-3. Write a query that returns all of the rows and all of the columns from the Person.Person table. Use
-the <code class="docutils literal notranslate"><span class="pre">*</span></code> instead of typing out the columns.
-4. It is a bad practice to use the <code class="docutils literal notranslate"><span class="pre">*</span></code> instead of typing out the list of columns for work that you will turn in.
-Instead of using the <code class="docutils literal notranslate"><span class="pre">*</span></code>, write a query that returns the BusinessEntityID and the three name columns from
-Person.Person.
-5. Write a query that returns a list of all the orders in the Sales.SalesOrderHeader table. Return the
-SalesOrderID, CustomerID, OrderDate, and TotalDue columns.
-6. Starting with the SSMS shortcut you used in Exercise 1, write a query that returns the list of
-products (Production.Product table). Remove the columns except for ProductID, Name, Color, and
-ListPrice. Run your modified query.</p>
-<p>Once you have completed the problem set, you can double check your answers against the solutions/problemsetanswers02</p>
+the database listed in the dropdown box is the AdventureWorks2014 database.</p>
+<ol class="arabic simple">
+<li>What is the difference between these two statements?</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">PRINT</span> <span class="pre">‘Hello</span> <span class="pre">world!’;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">‘Hello</span> <span class="pre">world!’;</span></code></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li>What are two reasons for using brackets around column and table names?</li>
+<li>Write a query that returns all of the rows and all of the columns from the Person.Person table. Use the <code class="docutils literal notranslate"><span class="pre">*</span></code> instead of typing out the columns.</li>
+<li>It is a bad practice to use the <code class="docutils literal notranslate"><span class="pre">*</span></code> instead of typing out the list of columns for work that you will turn in. Instead of using the <code class="docutils literal notranslate"><span class="pre">*</span></code>, write a query that returns the BusinessEntityID and the three name columns from Person.Person.</li>
+<li>Write a query that returns a list of all the orders in the Sales.SalesOrderHeader table. Return the SalesOrderID, CustomerID, OrderDate, and TotalDue columns.</li>
+<li>Starting with the SSMS shortcut you used in Exercise 1, write a query that returns the list of products (Production.Product table). Remove the columns except for ProductID, Name, Color, and ListPrice. Run your modified query.</li>
+</ol>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>Once you have completed the problem set, you might find the following resources helpful in understanding what you got right and wrong and why!</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="solutions/problemsetanswers02.html">Week 2 Problem Set Solutions</a></li>
+</ul>
+</div>
 </div>
 </div>
 
