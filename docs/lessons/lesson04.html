@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lesson 5: Introduction to SQL Server Reporting Services" href="lesson05.html" />
+    <link rel="next" title="Week 4 Problem Set" href="assignments/problemset04.html" />
     <link rel="prev" title="Week 3 Problem Set Solutions" href="assignments/solutions/problemsetanswers03.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -273,6 +273,7 @@
 </div>
 <div class="section" id="in-class-work">
 <h2>In-class Work<a class="headerlink" href="#in-class-work" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/LaunchCoderGirlSTL/SQL-Materials/blob/master/Week%204/SSRS.pdf">presentation</a> from class on SSRS can be helpful for the assignment this week.</p>
 <p>See if you can figure out which rows will be returned from each WHERE clause:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SELECT [AddressTypeID]
       ,[Name]
@@ -329,7 +330,13 @@ ORDER BY Name;
 <li>STUDY <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> <code class="docutils literal notranslate"><span class="pre">ORDER</span></code> <code class="docutils literal notranslate"><span class="pre">BY</span></code></li>
 <li>STUDY database design</li>
 </ul>
-<p>We will get another problem set here.</p>
+<p>We will complete another problem set. If you need to practice using <code class="docutils literal notranslate"><span class="pre">WHERE</span></code>, refer to the problem set from last week</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="assignments/problemset03.html">Week 3 Problem Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/problemset04.html">Week 4 Problem Set</a></li>
+</ul>
+</div>
 <p>See if you can create the wizard report. Here is query you will need:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">T</span><span class="o">.</span><span class="p">[</span><span class="n">Group</span><span class="p">],</span> <span class="n">T</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">Region</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderYear</span><span class="p">,</span>
     <span class="n">Month</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderMonth</span><span class="p">,</span> <span class="n">OrderDate</span><span class="p">,</span> <span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">TotalDue</span>

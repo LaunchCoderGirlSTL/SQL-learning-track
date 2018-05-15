@@ -28,6 +28,7 @@ Prep Work
 
 In-class Work
 -------------
+The `presentation <https://github.com/LaunchCoderGirlSTL/SQL-Materials/blob/master/Week%204/SSRS.pdf>`_ from class on SSRS can be helpful for the assignment this week.
 
 See if you can figure out which rows will be returned from each WHERE clause::
 
@@ -85,7 +86,13 @@ No quiz this week, but there will be a written test in class next class.
 * STUDY ``SELECT`` ``WHERE`` ``ORDER`` ``BY``
 * STUDY database design
 
-We will get another problem set here.
+We will complete another problem set. If you need to practice using ``WHERE``, refer to the problem set from last week
+
+.. toctree::
+   :maxdepth: 1
+
+   assignments/problemset03
+   assignments/problemset04
 
 See if you can create the wizard report. Here is query you will need::
 

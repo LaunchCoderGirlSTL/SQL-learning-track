@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Week 3 Problem Set &#8212; CoderGirl  documentation</title>
+    <title>Week 4 Problem Set &#8212; CoderGirl  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/launchcode.css" type="text/css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Week 3 Problem Set Solutions" href="solutions/problemsetanswers03.html" />
-    <link rel="prev" title="Lesson 3: Database Design" href="../lesson03.html" />
+    <link rel="next" title="Week 4 Problem Set Solutions" href="solutions/problemsetanswers04.html" />
+    <link rel="prev" title="Lesson 4: Filtering and Ordering Data" href="../lesson04.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -69,11 +69,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../lesson02.html#assignments">Assignments</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../lesson03.html">Lesson 3: Database Design</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lesson03.html">Lesson 3: Database Design</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lesson03.html#learning-objectives">Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lesson03.html#prep-work">Prep Work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lesson03.html#in-class-work">In-class Work</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../lesson03.html#assignments">Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lesson03.html#assignments">Assignments</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../lesson04.html">Lesson 4: Filtering and Ordering Data</a><ul class="current">
@@ -243,36 +243,53 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="week-3-problem-set">
-<h1>Week 3 Problem Set<a class="headerlink" href="#week-3-problem-set" title="Permalink to this headline">¶</a></h1>
-<p>If you need the ORDERBY and WHERE SQl files, the two files live in this <a class="reference external" href="https://github.com/LaunchCoderGirlSTL/SQL-Materials/tree/master/Week%203/">folder</a> and can be downloaded.
-Unless otherwise specified, use the AdventureWorks2014 database for these questions.</p>
+  <div class="section" id="week-4-problem-set">
+<h1>Week 4 Problem Set<a class="headerlink" href="#week-4-problem-set" title="Permalink to this headline">¶</a></h1>
+<p>Use the AdventureWorks2014 database</p>
 <ol class="arabic simple">
-<li>Show a list of unique job titles from the Employee table.</li>
-<li>Show a list of contact types that contain the word “manager” anywhere in the value.</li>
-<li>Show a list of contact types that contain the word “market” and the word “manager” anywhere in the value. Order of the words within the value is not important… Manager can come before or after Market.</li>
-<li>Show a list of contact types that do not contain the words “market” or “manager”. Neither word should appear in the title.</li>
-<li>Show StateProvinceCode, Name and CountryRegionCode from the StateProvince table. Show only the rows where the Name begins with “AL” and the CountryRegionCode is not “FR”.</li>
-<li>Show FirstName, LastName and EmailPromotion for people who have first names that start with “Q” or for people that meet these three criteria: First name starts with “X” and last name starts with “W” and EmailPromotion greater than 0.</li>
-<li>Show FirstName, LastName, PersonType and BusinessEntityID for people who have a BusinessEntityID less than 10 or people who have a first name that starts with “Pat” and have a PersonType of “SC”.</li>
-<li>Show FirstName, LastName, Suffix and Title for people who have some value for Suffix but nothing (null) for a Title.</li>
-<li>From the SalesPerson table, show BusinessEntityID, SalesQuota, SalesYTD, SalesLastYear, Bonus and CommissionPct for people that have a CommisionPct of .015 or higher and one of either a bonus greater than 4,000 or SalesYTD greater than 300,000.</li>
-<li>From the SalesPerson table, show BusinessEntityID, SalesQuota, SalesYTD, SalesLastYear, Bonus and CommissionPct for people that have a bonus under 2,500 and their quota is under 300,000 or null.</li>
-<li>From the product table, show ProductID, Name, ProductNumber, SafetyStockLevel and Color where:</li>
+<li>Write a query that returns the ProductID, Name, Color, and Size from the Production.Products table.</li>
 </ol>
 <blockquote>
-<div><ol class="arabic simple">
-<li>SafetyStockLevel is less than 10</li>
-<li>Color equals null</li>
-<li>Name ends in either “Pump” or “Cage”</li>
+<div><ol class="loweralpha simple">
+<li>Only if there is a color filled in</li>
+<li>Only if both the color and size are filled in</li>
+<li>Only if color and size are not filled in</li>
+<li>If at least one of them (color or size) is filled in</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Write a query that returns SalesOrderID, CustomerID, OrderDate and TotalDue from the Sales.SalesOrderHeader table.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>For orders placed in 2011</li>
+<li>For orders placed in 2011 and 2012</li>
+<li>For CustomerID 11001 and orders placed in 2014</li>
+<li>For CustomerID 11001, 11002, and 11003</li>
+<li>For orders that have a TotalDue more than $1000</li>
+<li>For orders that have a TotalDue at least $1000</li>
+<li>Displaying the highest TotalDue first</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Write a query that returns the BusinessEntityID, FirstName, MiddleName, LastName from the Person.Person table</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>With a FirstName starting with K.</li>
+<li>With z anywhere in their name (first, middle or last)</li>
+<li>With a LastName of Morgan and the FirstName of Abigail or Alexandra</li>
+<li>With the FirstName, MiddleName, and LastName combined to make a FullName column.</li>
+<li>With all the FirstName values starting with T to the end of the list</li>
+<li>Only the rows in the email promotion list</li>
 </ol>
 </div></blockquote>
 <div class="section" id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
-<p>Once you have completed the problem set, you might find the following resources helpful in understanding what you got right and wrong and why!</p>
+<p>After you complete the problem set, you may find the following resources helpful to figure out what you got right and wrong and why!</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="solutions/problemsetanswers03.html">Week 3 Problem Set Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solutions/problemsetanswers04.html">Week 4 Problem Set Solutions</a></li>
 </ul>
 </div>
 </div>
