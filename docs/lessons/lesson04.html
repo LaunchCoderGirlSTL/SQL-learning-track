@@ -244,9 +244,9 @@
     <div class="col-md-12 content">
       
   <div class="section" id="lesson-4-filtering-and-ordering-data">
-<span id="lesson-4-filtering-and-ordering-data"></span><h1>Lesson 4: Filtering and Ordering Data<a class="headerlink" href="#lesson-4-filtering-and-ordering-data" title="Permalink to this headline">¶</a></h1>
+<h1>Lesson 4: Filtering and Ordering Data<a class="headerlink" href="#lesson-4-filtering-and-ordering-data" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="learning-objectives">
-<span id="learning-objectives"></span><h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Write queries the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause to filter the results</li>
 <li>Understand how to work with <code class="docutils literal notranslate"><span class="pre">NULL</span></code> values in the <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clauses</li>
@@ -269,14 +269,74 @@
 </ul>
 </div>
 <div class="section" id="prep-work">
-<span id="prep-work"></span><h2>Prep Work<a class="headerlink" href="#prep-work" title="Permalink to this headline">¶</a></h2>
+<h2>Prep Work<a class="headerlink" href="#prep-work" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="in-class-work">
-<span id="in-class-work"></span><h2>In-class Work<a class="headerlink" href="#in-class-work" title="Permalink to this headline">¶</a></h2>
+<h2>In-class Work<a class="headerlink" href="#in-class-work" title="Permalink to this headline">¶</a></h2>
+<p>See if you can figure out which rows will be returned from each WHERE clause:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SELECT [AddressTypeID]
+      ,[Name]
+      ,[rowguid]
+      ,[ModifiedDate]
+  FROM [AdventureWorks2014].[Person].[AddressType]
+
+ORDER BY Name;
+   WHERE Name LIKE ‘B%’
+   WHERE Name NOT LIKE ‘B%’
+   WHERE Name LIKE ‘%B%’
+   WHERE Name LIKE ‘%pp%’
+   WHERE Name LIKE ‘%g’
+   WHERE Name LIKE ‘H%e%’
+   WHERE Name &gt;= ‘Ma’
+   WHERE Name &gt; ‘B’
+   WHERE Name &lt; ‘H’
+   WHERE AddressTypeID BETWEEN 1 AND 3
+   WHERE Name BETWEEN ‘A’ AND ‘B’
+   WHERE Name BETWEEN ‘A’ AND ‘Bi’
+   WHERE Name BETWEEN ‘A’ AND ‘Bu’
+   WHERE AddressTypeID IN (1,2,3)
+   WHERE Name IN (‘Shipping’,’Home’)
+   WHERE Name NOT IN (‘Shipping’,’Home’)
+   WHERE Name = ‘Shipping’ AND AddressTypeID = 1 WHERE Name = ‘Shipping’ OR AddressTypeID = 1
+
+  USE Northwind;
+  GO
+  --This is code to create the temp table. Just run it once
+  SELECT TOP (10) [OrderID]
+                 ,[CustomerID]
+                 ,[EmployeeID]
+                 ,[OrderDate]
+                 ,[Freight]
+                 ,[ShipRegion]
+                 ,[ShipPostalCode]
+                 ,[ShipCountry]
+  INTO #Order
+      FROM dbo.Orders;
+  --Code to select from the temp table
+  SELECT * FROM #Order
+    WHERE ShipRegion = NULL
+    WHERE ShipRegion IS NULL
+    WHERE ShipRegion &lt;&gt; ‘RJ’
+    WHERE ShipRegion IS NOT NULL OR ShipRegion &lt;&gt; ‘RJ’ WHERE ISNULL(ShipRegion, ‘’) &lt;&gt; ‘RJ’
+    WHERE COALESCE(ShipRegion,’’) &lt;&gt; ‘RJ’ WHERE Freight BETWEEN 22 AND 32 WHERE OrderDate = 1996-07-05
+</pre></div>
+</div>
 </div>
 <div class="section" id="assignments">
-<span id="assignments"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
-<p>Test will be given during Lesson 5.</p>
+<h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<p>No quiz this week, but there will be a written test in class next class.</p>
+<ul class="simple">
+<li>STUDY <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> <code class="docutils literal notranslate"><span class="pre">ORDER</span></code> <code class="docutils literal notranslate"><span class="pre">BY</span></code></li>
+<li>STUDY database design</li>
+</ul>
+<p>We will get another problem set here.</p>
+<p>See if you can create the wizard report. Here is query you will need:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">T</span><span class="o">.</span><span class="p">[</span><span class="n">Group</span><span class="p">],</span> <span class="n">T</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">Region</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderYear</span><span class="p">,</span>
+    <span class="n">Month</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderMonth</span><span class="p">,</span> <span class="n">OrderDate</span><span class="p">,</span> <span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">TotalDue</span>
+<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span>
+<span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesTerritory</span> <span class="n">AS</span> <span class="n">T</span> <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">TerritoryID</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">TerritoryID</span><span class="p">;</span>
+</pre></div>
+</div>
 </div>
 </div>
 
