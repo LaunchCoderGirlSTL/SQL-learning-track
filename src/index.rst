@@ -45,6 +45,9 @@ Solutions
    :maxdepth: 1
 
    lessons/assignments/solutions/problemsetanswers02
+   lessons/assignments/solutions/problemsetanswers03
+   lessons/assignments/solutions/problemsetanswers04
+   lessons/assignments/solutions/problemsetanswers05
 
 .. _@LaunchCodeEducation: https://github.com/launchcodeeducation
 .. _@LaunchCoderGirl: https://github.com/LaunchCoderGirlSTL
