@@ -18,7 +18,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lesson 10: Scalar Functions" href="lesson10.html" />
+    <link rel="next" title="Week 9 Problem Set" href="assignments/problemset06.html" />
     <link rel="prev" title="Week 8 Problem Set Solutions" href="assignments/solutions/problemsetanswers05.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -222,6 +222,11 @@
 <li class="toctree-l2"><a class="reference internal" href="assignments/solutions/problemsetanswers05.html#exercise-3">Exercise 3</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="assignments/solutions/problemsetanswers06.html">Week 9 Problem Set Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="assignments/solutions/problemsetanswers06.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/solutions/problemsetanswers06.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -252,9 +257,9 @@
     <div class="col-md-12 content">
       
   <div class="section" id="lesson-9-union-and-in-subqueries">
-<span id="lesson-9-union-and-in-subqueries"></span><h1>Lesson 9: UNION and IN Subqueries<a class="headerlink" href="#lesson-9-union-and-in-subqueries" title="Permalink to this headline">¶</a></h1>
+<h1>Lesson 9: UNION and IN Subqueries<a class="headerlink" href="#lesson-9-union-and-in-subqueries" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="learning-objectives">
-<span id="learning-objectives"></span><h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Write queries that use <code class="docutils literal notranslate"><span class="pre">UNION</span></code>, <code class="docutils literal notranslate"><span class="pre">UNION</span> <span class="pre">ALL</span></code>, <code class="docutils literal notranslate"><span class="pre">EXCEPT</span></code> or <code class="docutils literal notranslate"><span class="pre">INTERSECT</span></code></li>
 <li>Write queries that use a subquery in the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause using <code class="docutils literal notranslate"><span class="pre">IN</span></code></li>
@@ -262,16 +267,68 @@
 </ul>
 </div>
 <div class="section" id="prep-work">
-<span id="prep-work"></span><h2>Prep Work<a class="headerlink" href="#prep-work" title="Permalink to this headline">¶</a></h2>
+<h2>Prep Work<a class="headerlink" href="#prep-work" title="Permalink to this headline">¶</a></h2>
+<p>The join examples from Lesson 8 will be helpful with Lesson 9:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">AccountNumber</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span>
+      <span class="n">Pers</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">Pers</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span>
+      <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">OrderQty</span><span class="p">,</span>
+      <span class="n">Prod</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Color</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Size</span>
+<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span>
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span>
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">Prod</span> <span class="n">ON</span> <span class="n">Prod</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span>
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">Pers</span> <span class="n">ON</span> <span class="n">Pers</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">PersonID</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+
+
+
+<span class="o">--</span><span class="mi">19820</span>
+<span class="n">SELECT</span> <span class="o">*</span>
+<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span><span class="p">;</span>
+
+<span class="o">--</span><span class="mi">19119</span>
+<span class="n">SELECT</span> <span class="n">distinct</span> <span class="n">CustomerID</span>
+<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span><span class="p">;</span>
+
+<span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">AccountNumber</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span>
+      <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span>
+<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+
+<span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">AccountNumber</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span>
+      <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span> <span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">OrderQty</span><span class="p">,</span>
+      <span class="n">PROD</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Color</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Size</span>
+<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">Prod</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">Prod</span><span class="o">.</span><span class="n">ProductID</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+
+<span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">AccountNumber</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span>
+      <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span> <span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">OrderQty</span><span class="p">,</span>
+      <span class="n">PROD</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Color</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Size</span>
+<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">Prod</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">Prod</span><span class="o">.</span><span class="n">ProductID</span> <span class="n">AND</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Color</span> <span class="o">=</span> <span class="s1">&#39;Silver&#39;</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="in-class-work">
-<span id="in-class-work"></span><h2>In-class Work<a class="headerlink" href="#in-class-work" title="Permalink to this headline">¶</a></h2>
+<h2>In-class Work<a class="headerlink" href="#in-class-work" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="assignments">
-<span id="assignments"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
 <p>Read Chapter 6 of Zero to Hero</p>
 <p>Watch videos from Week 8</p>
 <p>Use the Northwind database for this quiz.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="assignments/problemset06.html">Week 9 Problem Set</a></li>
+</ul>
+</div>
 </div>
 </div>
 

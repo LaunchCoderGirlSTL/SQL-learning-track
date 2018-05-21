@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Week 4 Problem Set &#8212; CoderGirl  documentation</title>
+    <title>Week 9 Problem Set &#8212; CoderGirl  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/css/launchcode.css" type="text/css" />
@@ -18,8 +18,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Week 4 Problem Set Solutions" href="solutions/problemsetanswers04.html" />
-    <link rel="prev" title="Lesson 4: Filtering and Ordering Data" href="../lesson04.html" />
+    <link rel="next" title="Week 9 Problem Set Solutions" href="solutions/problemsetanswers06.html" />
+    <link rel="prev" title="Lesson 9: UNION and IN Subqueries" href="../lesson09.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -76,11 +76,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../lesson03.html#assignments">Assignments</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../lesson04.html">Lesson 4: Filtering and Ordering Data</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lesson04.html">Lesson 4: Filtering and Ordering Data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lesson04.html#learning-objectives">Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lesson04.html#prep-work">Prep Work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lesson04.html#in-class-work">In-class Work</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../lesson04.html#assignments">Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lesson04.html#assignments">Assignments</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../lesson05.html">Lesson 5: Introduction to SQL Server Reporting Services</a><ul>
@@ -111,11 +111,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../lesson08.html#assignments">Assignments</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../lesson09.html">Lesson 9: UNION and IN Subqueries</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="../lesson09.html">Lesson 9: UNION and IN Subqueries</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../lesson09.html#learning-objectives">Learning Objectives</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lesson09.html#prep-work">Prep Work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lesson09.html#in-class-work">In-class Work</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lesson09.html#assignments">Assignments</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../lesson09.html#assignments">Assignments</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../lesson10.html">Lesson 10: Scalar Functions</a><ul>
@@ -256,53 +256,35 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="week-4-problem-set">
-<h1>Week 4 Problem Set<a class="headerlink" href="#week-4-problem-set" title="Permalink to this headline">¶</a></h1>
-<p>Use the AdventureWorks2014 database</p>
+  <div class="section" id="week-9-problem-set">
+<h1>Week 9 Problem Set<a class="headerlink" href="#week-9-problem-set" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>The following problems use the Northwind Database.</p>
 <ol class="arabic simple">
-<li>Write a query that returns the ProductID, Name, Color, and Size from the Production.Products table.</li>
+<li>Show all Products and Categories, ordered by Category then Product</li>
+<li>Show all Products and Suppliers, ordered by Company then Product</li>
+<li>Show all Employee by Territory, ordered Employee Last Name then Territory (Hint, use EmployeeTerritories table to get from Employees to Territories)</li>
+<li>Show all Territories by Region, ordered by Region then Territory</li>
+<li>Show all Employees by Region AND Territory, ordered by Region, then Territory, then Last Name</li>
+<li>Show OrderID, OrderDate and ProductIDs for OrderID 10248</li>
 </ol>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li>Only if there is a color filled in</li>
-<li>Only if both the color and size are filled in</li>
-<li>Only if color and size are not filled in</li>
-<li>If at least one of them (color or size) is filled in</li>
+</div>
+<div class="section" id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
+<p>The following problems use the Adventure Works Database.</p>
+<ol class="arabic simple">
+<li>List all Products and Product Numbers. Include Product Reviews where applicable.</li>
+<li>List all Products with Product Numbers. Include Product Subcategory where applicable.</li>
+<li>List all Products with Product Numbers. Include Product Category AND Subcategory where applicable.</li>
+<li>List all Products with Product Numbers. Include Product Model were applicable.</li>
 </ol>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li>Write a query that returns SalesOrderID, CustomerID, OrderDate and TotalDue from the Sales.SalesOrderHeader table.</li>
-</ol>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li>For orders placed in 2011</li>
-<li>For orders placed in 2011 and 2012</li>
-<li>For CustomerID 11001 and orders placed in 2014</li>
-<li>For CustomerID 11001, 11002, and 11003</li>
-<li>For orders that have a TotalDue more than $1000</li>
-<li>For orders that have a TotalDue at least $1000</li>
-<li>Displaying the highest TotalDue first</li>
-</ol>
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li>Write a query that returns the BusinessEntityID, FirstName, MiddleName, LastName from the Person.Person table</li>
-</ol>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li>With a FirstName starting with K.</li>
-<li>With z anywhere in their name (first, middle or last)</li>
-<li>With a LastName of Morgan and the FirstName of Abigail or Alexandra</li>
-<li>With the FirstName, MiddleName, and LastName combined to make a FullName column.</li>
-<li>With all the FirstName values starting with T to the end of the list</li>
-<li>Only the rows in the email promotion list</li>
-</ol>
-</div></blockquote>
+</div>
 <div class="section" id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
-<p>After you complete the problem set, you may find the following resources helpful to figure out what you got right and wrong and why!</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="solutions/problemsetanswers04.html">Week 4 Problem Set Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solutions/problemsetanswers06.html">Week 9 Problem Set Solutions</a></li>
 </ul>
 </div>
 </div>
