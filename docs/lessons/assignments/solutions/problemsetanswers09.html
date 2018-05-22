@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Week 12 Problem Set Part 1 Solutions &#8212; CoderGirl  documentation</title>
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/launchcode.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Week 12 Problem Set Part 2" href="../problemset10.html" />
+    <link rel="prev" title="Week 12 Problem Set Part 1" href="../problemset09.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html"><span><img src="../../../_static/lc-logo.svg"></span>
+          CoderGirl SQL</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Lessons <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lesson01.html">Lesson 1: Ice breakers and database introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson01.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson01.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson01.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson01.html#assignments">Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson01.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson02.html">Lesson 2: Writing SELECT Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson02.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson02.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson02.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson02.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson03.html">Lesson 3: Database Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson03.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson03.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson03.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson03.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson04.html">Lesson 4: Filtering and Ordering Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson04.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson04.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson04.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson04.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson05.html">Lesson 5: Introduction to SQL Server Reporting Services</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson05.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson05.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson05.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson05.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson06.html">Lesson 6: Using Parameters in Reports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson06.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson06.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson06.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson06.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson07.html">Lesson 7: Advanced Report Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson07.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson07.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson07.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson07.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson08.html">Lesson 8: Joining Tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson08.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson08.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson08.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson08.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson09.html">Lesson 9: UNION and IN Subqueries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson09.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson09.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson09.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson09.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson10.html">Lesson 10: Scalar Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson10.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson10.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson10.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson10.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson11.html">Lesson 11: Aggregate Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson11.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson11.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson11.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson11.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../lesson12.html">Lesson 12: Grouping in Reports</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../lesson12.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson12.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson12.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../lesson12.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson13.html">Lesson 13: Deploying SSRS Reports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson13.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson13.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson13.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson13.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson14.html">Lesson 14: Data Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson14.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson14.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson14.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson14.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson15.html">Lesson 15: Creating Tables and Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson15.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson15.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson15.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson15.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson16.html">Lesson 16: Modifying Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson16.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson16.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson16.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson16.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson17.html">Lesson 17: Stored Procedures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson17.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson17.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson17.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson17.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson18.html">Lesson 18: Indexing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson18.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson18.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson18.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson18.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson19.html">Lesson 19: Advanced Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson19.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson19.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson19.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson19.html#assignments">Assignments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lesson20.html">Lesson 20: Using Report Builder and Report Parts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson20.html#learning-objectives">Learning Objectives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson20.html#prep-work">Prep Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson20.html#in-class-work">In-class Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lesson20.html#assignments">Assignments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../files/sql_server_install.html">SQL Server Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../files/sql_server_install.html#installation-of-sql-server-2016-developer-edition">Installation of SQL Server 2016 Developer Edition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../files/sql_server_install.html#installation-of-service-pack-1">Installation of Service Pack 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../files/sql_server_install.html#install-sql-server-management-studio">Install SQL Server Management Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../files/sql_server_install.html#attach-adventureworkslt-database">Attach AdventureWorksLT database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../files/sql_server_install.html#restore-the-adventureworks2014-database">Restore the AdventureWorks2014 database.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../files/sql_server_install.html#restore-the-northwind-database">Restore the Northwind Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../files/sql_server_install.html#installing-sql-server-data-tools">Installing SQL Server Data Tools</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="problemsetanswers02.html">Week 2 Problem Set Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="problemsetanswers02.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problemsetanswers02.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="problemsetanswers03.html">Week 3 Problem Set Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsetanswers04.html">Week 4 Problem Set Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsetanswers05.html">Week 8 Problem Set Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="problemsetanswers05.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problemsetanswers05.html#exercise-2">Exercise 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problemsetanswers05.html#exercise-3">Exercise 3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="problemsetanswers06.html">Week 9 Problem Set Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="problemsetanswers06.html#exercise-1">Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problemsetanswers06.html#exercise-2">Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="problemsetanswers07.html">Week 10 Problem Set Part 1 Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problemsetanswers08.html">Week 10 Problem Set Part 2 Solutions</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="week-12-problem-set-part-1-solutions">
+<span id="week-12-problem-set-part-1-solutions"></span><h1>Week 12 Problem Set Part 1 Solutions<a class="headerlink" href="#week-12-problem-set-part-1-solutions" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>-- What is the most common first letter of a last name in the Person table?  How many people with that letter?
+-- How many people have a last name that starts with F?
+SELECT LEFT(LastName, 1), COUNT(*)
+FROM Person.Person
+GROUP BY LEFT(LastName, 1)
+ORDER BY COUNT(*) DESC
+
+-- Using the SalesOrderHeader table, what is the total Tax Amount collected on 8/31/2011
+SELECT OrderDate, SUM(TaxAmt), COUNT(*)
+FROM Sales.SalesOrderHeader soh
+GROUP BY OrderDate
+ORDER BY OrderDate
+
+-- show the account number, first name, last name and sum of totaldue for any account that has spent more than 900,000
+-- ordered from highest sum to lowest sum
+-- HINT, use SalesOrderHeader, Customer and Person tables
+SELECT c.AccountNumber, FirstName, LastName, SUM(soh.totaldue)
+FROM sales.SalesOrderHeader soh
+INNER JOIN sales.Customer c on soh.CustomerID = c.CustomerID
+INNER JOIN Person.Person p on c.PersonID = p.BusinessEntityID
+GROUP BY c.AccountNumber, FirstName, LastName
+HAVING SUM(soh.totaldue) &gt; 900000
+
+-- Which First Letter of LastName has spent the most (total due from SalesOrderHeader)?
+-- Which First Letter of LastName has spent the least (non-zero total due from SalesOrderHeader)?
+SELECT LEFT(LastName,1), SUM(soh.totaldue)
+FROM sales.SalesOrderHeader soh
+INNER JOIN sales.Customer c on soh.CustomerID = c.CustomerID
+INNER JOIN Person.Person p on c.PersonID = p.BusinessEntityID
+GROUP BY LEFT(LastName,1)
+ORDER BY SUM(soh.totaldue) desc
+
+--Which year has the highest totaldue amount (based on Order Date)?
+SELECT YEAR(OrderDate), SUM(soh.totaldue)
+FROM sales.SalesOrderHeader soh
+GROUP BY YEAR(OrderDate)
+ORDER BY SUM(soh.totaldue) desc
+
+--Which month/year has the highest total due amount (based on Order Date)?
+SELECT YEAR(OrderDate), MONTH(OrderDate), SUM(soh.totaldue)
+FROM sales.SalesOrderHeader soh
+GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+ORDER BY SUM(soh.totaldue) desc
+
+-- How many customers are there that do not have anything in the SalesOrderHeader table?
+SELECT COUNT(*)
+FROM sales.Customer c
+WHERE c.CustomerID NOT IN (
+    SELECT CustomerID
+    FROM sales.SalesOrderHeader soh)
+</pre></div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2018, LaunchCode.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
