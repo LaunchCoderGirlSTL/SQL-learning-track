@@ -36,7 +36,7 @@ Resources
 .. toctree::
    :maxdepth: 1
 
-   lessons/files/sql_server_install
+   lessons/resources/sql_server_install
 
 Solutions
 =========

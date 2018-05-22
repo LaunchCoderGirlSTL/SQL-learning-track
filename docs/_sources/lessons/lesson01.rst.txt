@@ -35,6 +35,6 @@ Resources
 .. toctree::
    :maxdepth: 1
 
-   files/sql_server_install
-   files/connection_issues
-   files/how_to_restore_a_database
+   resources/sql_server_install
+   resources/connection_issues
+   resources/how_to_restore_a_database
