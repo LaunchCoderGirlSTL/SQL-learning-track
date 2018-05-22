@@ -259,9 +259,9 @@
     <div class="col-md-12 content">
       
   <div class="section" id="lesson-13-deploying-ssrs-reports">
-<span id="lesson-13-deploying-ssrs-reports"></span><h1>Lesson 13: Deploying SSRS Reports<a class="headerlink" href="#lesson-13-deploying-ssrs-reports" title="Permalink to this headline">¶</a></h1>
+<h1>Lesson 13: Deploying SSRS Reports<a class="headerlink" href="#lesson-13-deploying-ssrs-reports" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="learning-objectives">
-<span id="learning-objectives"></span><h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Understand how to use the SSRS Web Portal</li>
 <li>Deploy reports to the SSRS Web Portal</li>
@@ -269,15 +269,29 @@
 </ul>
 </div>
 <div class="section" id="prep-work">
-<span id="prep-work"></span><h2>Prep Work<a class="headerlink" href="#prep-work" title="Permalink to this headline">¶</a></h2>
+<h2>Prep Work<a class="headerlink" href="#prep-work" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="in-class-work">
-<span id="in-class-work"></span><h2>In-class Work<a class="headerlink" href="#in-class-work" title="Permalink to this headline">¶</a></h2>
+<h2>In-class Work<a class="headerlink" href="#in-class-work" title="Permalink to this headline">¶</a></h2>
+<p>The following code sample will be of assistance in class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderYear</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span>
+      <span class="n">SUM</span><span class="p">(</span><span class="n">SOH</span><span class="o">.</span><span class="n">TotalDue</span><span class="p">)</span> <span class="n">AS</span> <span class="n">Sales</span><span class="p">,</span>
+      <span class="n">Ter</span><span class="o">.</span><span class="n">TerritoryID</span><span class="p">,</span> <span class="n">Ter</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">TerritoryName</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">Storename</span>
+<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span>
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesTerritory</span> <span class="n">AS</span> <span class="n">Ter</span> <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">TerritoryID</span> <span class="o">=</span> <span class="n">Ter</span><span class="o">.</span><span class="n">TerritoryID</span>
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Store</span> <span class="n">AS</span> <span class="n">S</span> <span class="n">ON</span> <span class="n">s</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span>
+<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Ter</span><span class="o">.</span><span class="n">TerritoryID</span><span class="p">,</span> <span class="n">Ter</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span>
+      <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">),</span> <span class="n">S</span><span class="o">.</span><span class="n">Name</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The presentation will be covering <a class="reference external" href="https://github.com/LaunchCoderGirlSTL/SQL-Materials/blob/master/Week%2013/SSRS%20Grouping.pdf/">SSRS and Grouping Reports</a>.</p>
 </div>
 <div class="section" id="assignments">
-<span id="assignments"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
 <p>Take a look at the second <a class="reference external" href="https://www.red-gate.com/simple-talk/sql/reporting-services/sql-server-reporting-services-basics-customizing-ssrs-reports/">SSRS article</a> starting with the Grouping section.</p>
-<p>Create the required reports using the AdventureWorks2014 database. Run the report and export as PDF files. Upload the PDF. IMPORTANT: make sure that your report fits on the page!!</p>
+<p>Create the required reports using the AdventureWorks2014 database. Run the report and export as PDF files. Upload the PDF in Canvas. IMPORTANT: make sure that your report fits on the page!!
+The reports can be found in the <a class="reference external" href="https://github.com/LaunchCoderGirlSTL/SQL-Materials/tree/master/Week%2013/Report%20Project9/">Github repository</a>.</p>
 </div>
 </div>
 
