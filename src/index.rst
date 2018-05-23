@@ -54,6 +54,7 @@ Solutions
    lessons/assignments/solutions/problemsetanswers09
    lessons/assignments/solutions/problemsetanswers10
    lessons/assignments/solutions/problemsetanswers11
+   lessons/assignments/solutions/problemsetanswers12
 
 .. _@LaunchCodeEducation: https://github.com/launchcodeeducation
 .. _@LaunchCoderGirl: https://github.com/LaunchCoderGirlSTL
