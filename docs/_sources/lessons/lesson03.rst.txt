@@ -12,6 +12,8 @@ Learning Objectives
 Prep Work
 ---------
 
+Watch all of the videos in the **Lesson 3 Prep** assignment in Canvas.
+
 In-class Work
 -------------
 

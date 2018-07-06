@@ -18,15 +18,19 @@ Learning Objectives
 Prep Work
 ---------
 
+Before the first class, complete the Course Prep Work - Installation task in Canvas, and complete the SQL 1 quiz in Canvas.
+
 In-class Work
 -------------
 
 Ice breakers and Installs!
+
 Linked below are resources to help you with the installation and troubleshooting some common SQL problems.
 Here is the `presentation <https://github.com/LaunchCoderGirlSTL/SQL-Materials/blob/master/Week%201/Week1.pdf/>`_ from the first day of class.
 
 Assignments
 -----------
+
 Complete the quiz in Canvas only AFTER you complete the installations and restores. If you are having trouble with the installations, please complete the quiz anyway. There will be time during the next class to troubleshoot installations.
 
 Resources
