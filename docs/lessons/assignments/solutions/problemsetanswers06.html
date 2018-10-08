@@ -283,87 +283,87 @@
 <span id="week-9-problem-set-solutions"></span><h1>Week 9 Problem Set Solutions<a class="headerlink" href="#week-9-problem-set-solutions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="exercise-1">
 <span id="exercise-1"></span><h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">--</span> <span class="n">All</span> <span class="n">Products</span> <span class="ow">and</span> <span class="n">Categories</span><span class="p">,</span> <span class="n">ordered</span> <span class="n">by</span> <span class="n">Category</span> <span class="n">then</span> <span class="n">Product</span>
- <span class="n">SELECT</span> <span class="n">c</span><span class="o">.</span><span class="n">CategoryName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductName</span>
- <span class="n">FROM</span> <span class="n">Products</span> <span class="n">p</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Categories</span> <span class="n">c</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">CategoryID</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">CategoryID</span>
- <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">c</span><span class="o">.</span><span class="n">CategoryName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductName</span>
- <span class="o">--</span> <span class="n">All</span> <span class="n">Products</span> <span class="ow">and</span> <span class="n">Suppliers</span><span class="p">,</span> <span class="n">ordered</span> <span class="n">by</span> <span class="n">Company</span> <span class="n">then</span> <span class="n">Product</span>
- <span class="n">SELECT</span> <span class="n">s</span><span class="o">.</span><span class="n">CompanyName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductName</span>
- <span class="n">FROM</span> <span class="n">Products</span> <span class="n">p</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Suppliers</span> <span class="n">s</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">SupplierID</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">SupplierID</span>
- <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">s</span><span class="o">.</span><span class="n">CompanyName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductName</span>
-<span class="o">--</span> <span class="n">All</span> <span class="n">Employees</span> <span class="n">by</span> <span class="n">Territory</span><span class="p">,</span> <span class="n">ordered</span> <span class="n">Employee</span> <span class="n">Last</span> <span class="n">Name</span> <span class="n">then</span> <span class="n">Territory</span>
-<span class="o">--</span>   <span class="p">(</span><span class="n">Hint</span><span class="p">,</span> <span class="n">use</span> <span class="n">EmployeeTerritories</span> <span class="n">table</span> <span class="n">to</span> <span class="n">get</span> <span class="kn">from</span> <span class="nn">Employees</span> <span class="n">to</span> <span class="n">Territories</span><span class="p">)</span>
-<span class="n">SELECT</span> <span class="n">e</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">TerritoryDescription</span>
-<span class="n">FROM</span> <span class="n">Employees</span> <span class="n">e</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">EmployeeTerritories</span> <span class="n">et</span> <span class="n">ON</span> <span class="n">e</span><span class="o">.</span><span class="n">EmployeeID</span> <span class="o">=</span> <span class="n">et</span><span class="o">.</span><span class="n">EmployeeID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Territories</span> <span class="n">t</span> <span class="n">ON</span> <span class="n">et</span><span class="o">.</span><span class="n">TerritoryID</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TerritoryID</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">e</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">TerritoryDescription</span>
- <span class="o">--</span> <span class="n">All</span> <span class="n">Territories</span> <span class="n">by</span> <span class="n">Region</span><span class="p">,</span> <span class="n">ordered</span> <span class="n">by</span> <span class="n">Region</span> <span class="n">then</span> <span class="n">Territory</span>
- <span class="n">SELECT</span> <span class="n">r</span><span class="o">.</span><span class="n">RegionDescription</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">TerritoryDescription</span>
- <span class="n">FROM</span> <span class="n">Region</span> <span class="n">r</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Territories</span> <span class="n">t</span> <span class="n">ON</span> <span class="n">r</span><span class="o">.</span><span class="n">RegionID</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">RegionID</span>
- <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">r</span><span class="o">.</span><span class="n">RegionDescription</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">TerritoryDescription</span>
-<span class="o">--</span> <span class="n">All</span> <span class="n">Employees</span> <span class="n">by</span> <span class="n">Region</span> <span class="n">AND</span> <span class="n">Territory</span><span class="p">,</span> <span class="n">ordered</span> <span class="n">by</span> <span class="n">Region</span><span class="p">,</span> <span class="n">then</span> <span class="n">Territory</span><span class="p">,</span> <span class="n">then</span> <span class="n">Last</span>
-<span class="n">Name</span>
-<span class="n">SELECT</span> <span class="n">r</span><span class="o">.</span><span class="n">RegionDescription</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">TerritoryDescription</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">LastName</span>
-<span class="n">FROM</span> <span class="n">Employees</span> <span class="n">e</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">EmployeeTerritories</span> <span class="n">et</span> <span class="n">ON</span> <span class="n">e</span><span class="o">.</span><span class="n">EmployeeID</span> <span class="o">=</span> <span class="n">et</span><span class="o">.</span><span class="n">EmployeeID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Territories</span> <span class="n">t</span> <span class="n">ON</span> <span class="n">et</span><span class="o">.</span><span class="n">TerritoryID</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">TerritoryID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Region</span> <span class="n">r</span> <span class="n">ON</span> <span class="n">t</span><span class="o">.</span><span class="n">RegionID</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">RegionID</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">r</span><span class="o">.</span><span class="n">RegionDescription</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">TerritoryDescription</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">LastName</span>
- <span class="o">--</span> <span class="n">Show</span> <span class="n">OrderID</span><span class="p">,</span> <span class="n">OrderDate</span> <span class="ow">and</span> <span class="n">ProductIDs</span> <span class="k">for</span> <span class="n">OrderID</span> <span class="mi">10248</span>
- <span class="n">SELECT</span> <span class="n">o</span><span class="o">.</span><span class="n">OrderID</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">OrderDate</span><span class="p">,</span> <span class="n">od</span><span class="o">.</span><span class="n">ProductID</span>
- <span class="n">FROM</span> <span class="n">Orders</span> <span class="n">o</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="p">[</span><span class="n">Order</span> <span class="n">Details</span><span class="p">]</span> <span class="n">od</span> <span class="n">ON</span> <span class="n">o</span><span class="o">.</span><span class="n">OrderID</span> <span class="o">=</span> <span class="n">od</span><span class="o">.</span><span class="n">OrderID</span>
- <span class="n">WHERE</span> <span class="n">o</span><span class="o">.</span><span class="n">OrderID</span> <span class="o">=</span> <span class="mi">10248</span>
-<span class="o">--</span> <span class="n">Show</span> <span class="n">Customer</span> <span class="p">(</span><span class="n">Company</span><span class="p">)</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Order</span> <span class="n">Date</span><span class="p">,</span> <span class="n">Product</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Product</span> <span class="n">Category</span><span class="p">,</span> <span class="n">Unit</span> <span class="n">Price</span>
-<span class="ow">and</span> <span class="n">Quantity</span> <span class="k">for</span> <span class="n">OrderID</span> <span class="mi">10248</span>
-<span class="n">SELECT</span> <span class="n">c</span><span class="o">.</span><span class="n">CompanyName</span><span class="p">,</span> <span class="n">o</span><span class="o">.</span><span class="n">OrderDate</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductName</span><span class="p">,</span> <span class="n">cg</span><span class="o">.</span><span class="n">CategoryName</span><span class="p">,</span> <span class="n">od</span><span class="o">.</span><span class="n">UnitPrice</span><span class="p">,</span>
-<span class="n">od</span><span class="o">.</span><span class="n">Quantity</span>
-<span class="n">FROM</span> <span class="n">Orders</span> <span class="n">o</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="p">[</span><span class="n">Order</span> <span class="n">Details</span><span class="p">]</span> <span class="n">od</span> <span class="n">ON</span> <span class="n">o</span><span class="o">.</span><span class="n">OrderID</span> <span class="o">=</span> <span class="n">od</span><span class="o">.</span><span class="n">OrderID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Customers</span> <span class="n">c</span> <span class="n">ON</span> <span class="n">o</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">CustomerID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Products</span> <span class="n">p</span> <span class="n">ON</span> <span class="n">od</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Categories</span> <span class="n">cg</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">CategoryID</span> <span class="o">=</span> <span class="n">cg</span><span class="o">.</span><span class="n">CategoryID</span>
-<span class="n">WHERE</span> <span class="n">o</span><span class="o">.</span><span class="n">OrderID</span> <span class="o">=</span> <span class="mi">10248</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> -- All Products and Categories, ordered by Category then Product
+ SELECT c.CategoryName, p.ProductName
+ FROM Products p
+ INNER JOIN Categories c ON p.CategoryID = c.CategoryID
+ ORDER BY c.CategoryName, p.ProductName
+ -- All Products and Suppliers, ordered by Company then Product
+ SELECT s.CompanyName, p.ProductName
+ FROM Products p
+ INNER JOIN Suppliers s ON p.SupplierID = s.SupplierID
+ ORDER BY s.CompanyName, p.ProductName
+-- All Employees by Territory, ordered Employee Last Name then Territory
+--   (Hint, use EmployeeTerritories table to get from Employees to Territories)
+SELECT e.FirstName, e.LastName, t.TerritoryDescription
+FROM Employees e
+INNER JOIN EmployeeTerritories et ON e.EmployeeID = et.EmployeeID
+INNER JOIN Territories t ON et.TerritoryID = t.TerritoryID
+ORDER BY e.LastName, t.TerritoryDescription
+ -- All Territories by Region, ordered by Region then Territory
+ SELECT r.RegionDescription, t.TerritoryDescription
+ FROM Region r
+ INNER JOIN Territories t ON r.RegionID = t.RegionID
+ ORDER BY r.RegionDescription, t.TerritoryDescription
+-- All Employees by Region AND Territory, ordered by Region, then Territory, then Last
+Name
+SELECT r.RegionDescription, t.TerritoryDescription, e.FirstName, e.LastName
+FROM Employees e
+INNER JOIN EmployeeTerritories et ON e.EmployeeID = et.EmployeeID
+INNER JOIN Territories t ON et.TerritoryID = t.TerritoryID
+INNER JOIN Region r ON t.RegionID = r.RegionID
+ORDER BY r.RegionDescription, t.TerritoryDescription, e.LastName
+ -- Show OrderID, OrderDate and ProductIDs for OrderID 10248
+ SELECT o.OrderID, o.OrderDate, od.ProductID
+ FROM Orders o
+ INNER JOIN [Order Details] od ON o.OrderID = od.OrderID
+ WHERE o.OrderID = 10248
+-- Show Customer (Company) Name, Order Date, Product Name, Product Category, Unit Price
+and Quantity for OrderID 10248
+SELECT c.CompanyName, o.OrderDate, p.ProductName, cg.CategoryName, od.UnitPrice,
+od.Quantity
+FROM Orders o
+INNER JOIN [Order Details] od ON o.OrderID = od.OrderID
+INNER JOIN Customers c ON o.CustomerID = c.CustomerID
+INNER JOIN Products p ON od.ProductID = p.ProductID
+INNER JOIN Categories cg ON p.CategoryID = cg.CategoryID
+WHERE o.OrderID = 10248
 </pre></div>
 </div>
 </div>
 <div class="section" id="exercise-2">
 <span id="exercise-2"></span><h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">--</span> <span class="n">List</span> <span class="n">Products</span> <span class="ow">and</span> <span class="n">Product</span> <span class="n">Numbers</span><span class="o">.</span>  <span class="n">Include</span> <span class="n">Product</span> <span class="n">Reviews</span> <span class="n">where</span> <span class="n">applicable</span><span class="o">.</span>
- <span class="n">SELECT</span> <span class="n">p</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductNumber</span><span class="p">,</span> <span class="n">pr</span><span class="o">.</span><span class="n">Comments</span>
- <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">p</span>
- <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="p">[</span><span class="n">Production</span><span class="p">]</span><span class="o">.</span><span class="p">[</span><span class="n">ProductReview</span><span class="p">]</span> <span class="n">pr</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">ProductID</span>
- <span class="o">--</span> <span class="n">List</span> <span class="nb">all</span> <span class="n">Products</span> <span class="k">with</span> <span class="n">Product</span> <span class="n">Numbers</span><span class="o">.</span>  <span class="n">Include</span> <span class="n">Product</span> <span class="n">Subcategory</span> <span class="n">where</span> <span class="n">applicable</span><span class="o">.</span>
- <span class="n">SELECT</span> <span class="n">p</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductNumber</span><span class="p">,</span> <span class="n">psc</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductSubCategory</span>
- <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">p</span>
- <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">ProductSubcategory</span> <span class="n">psc</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductSubcategoryID</span> <span class="o">=</span>
- <span class="n">psc</span><span class="o">.</span><span class="n">ProductSubcategoryID</span>
-<span class="o">--</span> <span class="n">List</span> <span class="nb">all</span> <span class="n">Products</span> <span class="k">with</span> <span class="n">Product</span> <span class="n">Numbers</span><span class="o">.</span>  <span class="n">Include</span> <span class="n">Product</span> <span class="n">Category</span> <span class="n">AND</span> <span class="n">Subcategory</span>
-<span class="n">where</span> <span class="n">applicable</span><span class="o">.</span>
-<span class="n">SELECT</span> <span class="n">p</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductNumber</span><span class="p">,</span> <span class="n">psc</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductSubCategory</span><span class="p">,</span> <span class="n">pc</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span>
-<span class="n">ProductCategory</span>
-<span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">p</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">ProductSubcategory</span> <span class="n">psc</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductSubcategoryID</span> <span class="o">=</span>
-<span class="n">psc</span><span class="o">.</span><span class="n">ProductSubcategoryID</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">ProductCategory</span> <span class="n">pc</span> <span class="n">ON</span> <span class="n">psc</span><span class="o">.</span><span class="n">ProductCategoryID</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">ProductCategoryID</span>
- <span class="o">--</span> <span class="n">List</span> <span class="nb">all</span> <span class="n">Products</span> <span class="k">with</span> <span class="n">Product</span> <span class="n">Numbers</span><span class="o">.</span>  <span class="n">Include</span> <span class="n">Product</span> <span class="n">Model</span> <span class="n">were</span> <span class="n">applicable</span><span class="o">.</span>
- <span class="n">SELECT</span> <span class="n">p</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductNumber</span><span class="p">,</span> <span class="n">pm</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductModel</span>
- <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">p</span>
- <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">ProductModel</span> <span class="n">pm</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductModelID</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">ProductModelID</span>
-<span class="o">--</span> <span class="n">List</span> <span class="nb">all</span> <span class="n">Products</span> <span class="k">with</span> <span class="n">Product</span> <span class="n">Numbers</span><span class="o">.</span>  <span class="n">Include</span> <span class="n">Product</span> <span class="n">Subcategory</span><span class="p">,</span> <span class="n">Product</span> <span class="n">Category</span>
-<span class="n">AND</span> <span class="n">Product</span> <span class="n">Model</span> <span class="n">where</span> <span class="n">applicable</span><span class="o">.</span>
-<span class="n">SELECT</span> <span class="n">p</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductName</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductNumber</span><span class="p">,</span> <span class="n">psc</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductSubCategory</span><span class="p">,</span> <span class="n">pc</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span>
-<span class="n">ProductCategory</span>
-<span class="p">,</span> <span class="n">pm</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">ProductModel</span>
-<span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">p</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">ProductSubcategory</span> <span class="n">psc</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductSubcategoryID</span> <span class="o">=</span>
-<span class="n">psc</span><span class="o">.</span><span class="n">ProductSubcategoryID</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">ProductCategory</span> <span class="n">pc</span> <span class="n">ON</span> <span class="n">psc</span><span class="o">.</span><span class="n">ProductCategoryID</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">ProductCategoryID</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">ProductModel</span> <span class="n">pm</span> <span class="n">ON</span> <span class="n">p</span><span class="o">.</span><span class="n">ProductModelID</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">ProductModelID</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> -- List Products and Product Numbers.  Include Product Reviews where applicable.
+ SELECT p.Name, p.ProductNumber, pr.Comments
+ FROM Production.Product p
+ LEFT JOIN [Production].[ProductReview] pr ON p.ProductID = pr.ProductID
+ -- List all Products with Product Numbers.  Include Product Subcategory where applicable.
+ SELECT p.Name AS ProductName, p.ProductNumber, psc.Name AS ProductSubCategory
+ FROM Production.Product p
+ LEFT JOIN Production.ProductSubcategory psc ON p.ProductSubcategoryID =
+ psc.ProductSubcategoryID
+-- List all Products with Product Numbers.  Include Product Category AND Subcategory
+where applicable.
+SELECT p.Name AS ProductName, p.ProductNumber, psc.Name AS ProductSubCategory, pc.Name AS
+ProductCategory
+FROM Production.Product p
+LEFT JOIN Production.ProductSubcategory psc ON p.ProductSubcategoryID =
+psc.ProductSubcategoryID
+LEFT JOIN Production.ProductCategory pc ON psc.ProductCategoryID = pc.ProductCategoryID
+ -- List all Products with Product Numbers.  Include Product Model were applicable.
+ SELECT p.Name AS ProductName, p.ProductNumber, pm.Name AS ProductModel
+ FROM Production.Product p
+ LEFT JOIN Production.ProductModel pm ON p.ProductModelID = pm.ProductModelID
+-- List all Products with Product Numbers.  Include Product Subcategory, Product Category
+AND Product Model where applicable.
+SELECT p.Name AS ProductName, p.ProductNumber, psc.Name AS ProductSubCategory, pc.Name AS
+ProductCategory
+, pm.Name AS ProductModel
+FROM Production.Product p
+LEFT JOIN Production.ProductSubcategory psc ON p.ProductSubcategoryID =
+psc.ProductSubcategoryID
+LEFT JOIN Production.ProductCategory pc ON psc.ProductCategoryID = pc.ProductCategoryID
+LEFT JOIN Production.ProductModel pm ON p.ProductModelID = pm.ProductModelID
 </pre></div>
 </div>
 </div>
@@ -379,10 +379,15 @@
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/lessons/assignments/solutions/problemsetanswers06.md.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>

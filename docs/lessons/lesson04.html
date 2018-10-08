@@ -308,12 +308,13 @@
 </div>
 <div class="section" id="prep-work">
 <h2>Prep Work<a class="headerlink" href="#prep-work" title="Permalink to this headline">¶</a></h2>
+<p>Watch all of the videos in the <strong>Lesson 4 Prep</strong> assignment in Canvas.</p>
 </div>
 <div class="section" id="in-class-work">
 <h2>In-class Work<a class="headerlink" href="#in-class-work" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://github.com/LaunchCoderGirlSTL/SQL-Materials/blob/master/Week%204/SSRS.pdf">presentation</a> from class on SSRS can be helpful for the assignment this week.</p>
 <p>See if you can figure out which rows will be returned from each WHERE clause:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>SELECT [AddressTypeID]
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT [AddressTypeID]
       ,[Name]
       ,[rowguid]
       ,[ModifiedDate]
@@ -376,10 +377,10 @@ ORDER BY Name;
 </ul>
 </div>
 <p>See if you can create the wizard report. Here is query you will need:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">T</span><span class="o">.</span><span class="p">[</span><span class="n">Group</span><span class="p">],</span> <span class="n">T</span><span class="o">.</span><span class="n">Name</span> <span class="n">AS</span> <span class="n">Region</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderYear</span><span class="p">,</span>
-    <span class="n">Month</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderMonth</span><span class="p">,</span> <span class="n">OrderDate</span><span class="p">,</span> <span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">TotalDue</span>
-<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span>
-<span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesTerritory</span> <span class="n">AS</span> <span class="n">T</span> <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">TerritoryID</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">TerritoryID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT T.[Group], T.Name AS Region, YEAR(OrderDate) AS OrderYear,
+    Month(OrderDate) AS OrderMonth, OrderDate, SalesOrderID, TotalDue
+FROM Sales.SalesOrderHeader AS SOH
+JOIN Sales.SalesTerritory AS T ON SOH.TerritoryID = T.TerritoryID;
 </pre></div>
 </div>
 </div>
@@ -395,10 +396,15 @@ ORDER BY Name;
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/lessons/lesson04.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>

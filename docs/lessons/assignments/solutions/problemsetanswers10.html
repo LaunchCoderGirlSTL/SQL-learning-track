@@ -279,52 +279,52 @@
 <span id="week-12-problem-set-part-2-solutions"></span><h1>Week 12 Problem Set Part 2 Solutions<a class="headerlink" href="#week-12-problem-set-part-2-solutions" title="Permalink to this headline">¶</a></h1>
 <ol>
 <li><p class="first">Write a query using the Production.Product table that returns the minimum, maximum, and average ListPrice for each product. Include the ProductID and Name in the results.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">MIN</span><span class="p">(</span><span class="n">ListPrice</span><span class="p">)</span> <span class="n">AS</span> <span class="n">MinPrice</span><span class="p">,</span>
- <span class="n">MAX</span><span class="p">(</span><span class="n">ListPrice</span><span class="p">)</span> <span class="n">AS</span> <span class="n">MaxPrice</span><span class="p">,</span>
- <span class="n">AVG</span><span class="p">(</span><span class="n">ListPrice</span><span class="p">)</span> <span class="n">AS</span> <span class="n">AvgPrice</span>
- <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT MIN(ListPrice) AS MinPrice,
+ MAX(ListPrice) AS MaxPrice,
+ AVG(ListPrice) AS AvgPrice
+ FROM Production.Product;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a query that returns the average freight for each TerritoryID in the Sales.SalesOrderHeader table.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">TerritoryID</span><span class="p">,</span> <span class="n">AVG</span><span class="p">(</span><span class="n">Freight</span><span class="p">)</span> <span class="n">AS</span> <span class="n">AvgFreight</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">TerritoryID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT TerritoryID, AVG(Freight) AS AvgFreight
+ FROM Sales.SalesOrderHeader
+ GROUP BY TerritoryID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a query that returns a count of detail lines in the Sales.SalesOrderDetail table for each SalesOrderID. Include only orders that have at least three detail lines.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">CountOfDetails</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">SalesOrderID</span>
- <span class="n">HAVING</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT SalesOrderID, COUNT(*) CountOfDetails
+ FROM Sales.SalesOrderDetail
+ GROUP BY SalesOrderID
+ HAVING COUNT(*) &gt;= 3;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a query that groups the products by ProductModelID along with a count. Display the rows that have a count that equals 1.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">ProductModelID</span><span class="p">,</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">CountOfProducts</span>
- <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">ProductModelID</span>
- <span class="n">HAVING</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT ProductModelID, COUNT(*) CountOfProducts
+ FROM Production.Product
+ GROUP BY ProductModelID
+ HAVING COUNT(*) = 1;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Change the previous query so that only the products that are red or blue are included.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">ProductModelID</span><span class="p">,</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">CountOfProducts</span>
- <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span>
- <span class="n">WHERE</span> <span class="n">Color</span> <span class="n">IN</span> <span class="p">(</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span><span class="s1">&#39;Blue&#39;</span><span class="p">)</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">ProductModelID</span>
- <span class="n">HAVING</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT ProductModelID, COUNT(*) CountOfProducts
+ FROM Production.Product
+ WHERE Color IN (&#39;Red&#39;,&#39;Blue&#39;)
+ GROUP BY ProductModelID
+ HAVING COUNT(*) = 1;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a query joining the Person.Person, Sales.Customer, and Sales.SalesOrderHeader table. Return a list of the customers with their names and the count of orders each one has placed.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Pers</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">Pers</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span>
- <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">AS</span> <span class="n">CountOfSales</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">Pers</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span> <span class="n">ON</span> <span class="n">Pers</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Pers</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">Pers</span><span class="o">.</span><span class="n">LastName</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT Cust.CustomerID, Pers.FirstName, Pers.LastName,
+ COUNT(*) AS CountOfSales
+ FROM Person.Person AS Pers
+ INNER JOIN Sales.Customer AS Cust ON Pers.BusinessEntityID = Cust.CustomerID
+ INNER JOIN Sales.SalesOrderHeader AS SOH ON Cust.CustomerID = SOH.CustomerID
+ GROUP BY Cust.CustomerID, Pers.FirstName, Pers.LastName;
 </pre></div>
 </div>
 </li>
@@ -341,10 +341,15 @@
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/lessons/assignments/solutions/problemsetanswers10.md.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>

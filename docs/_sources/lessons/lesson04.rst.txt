@@ -26,6 +26,8 @@ Learning Objectives
 Prep Work
 ---------
 
+Watch all of the videos in the **Lesson 4 Prep** assignment in Canvas.
+
 In-class Work
 -------------
 The `presentation <https://github.com/LaunchCoderGirlSTL/SQL-Materials/blob/master/Week%204/SSRS.pdf>`_ from class on SSRS can be helpful for the assignment this week.

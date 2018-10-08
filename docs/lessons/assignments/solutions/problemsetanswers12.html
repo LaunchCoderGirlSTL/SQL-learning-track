@@ -286,17 +286,17 @@
 <span id="exercise-1"></span><h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p class="first">Create a copy of the Sales.SalesOrderHeader table into a temp table called #Sales and populate it with data in one step. Include only the SalesOrderID, OrderDate, TotalDue, and CustomerID columns.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">OrderDate</span><span class="p">,</span> <span class="n">TotalDue</span><span class="p">,</span> <span class="n">CustomerID</span> <span class="n">INTO</span> <span class="c1">#Sales FROM</span>
- <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT SalesOrderID, OrderDate, TotalDue, CustomerID INTO #Sales FROM
+ Sales.SalesOrderHeader;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Create a temp table called #Customers. It must have a CustomerID. It must also have a FirstName and LastName column. Figure out which data types are needed by looking at the Person.Person and Sales.Customer tables. Make the CustomerID a primary key.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">CREATE</span> <span class="n">TABLE</span> <span class="c1">#Customers (</span>
- <span class="n">CustomerID</span> <span class="n">INT</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span>
- <span class="n">FirstName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
- <span class="n">LastName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
- <span class="p">);</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> CREATE TABLE #Customers (
+ CustomerID INT PRIMARY KEY,
+ FirstName NVARCHAR(50),
+ LastName NVARCHAR(50)
+ );
 </pre></div>
 </div>
 </li>
@@ -306,14 +306,14 @@
 <span id="exercise-2"></span><h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p class="first">Write a query to populate the #Customers table. You will need to join the Person.Person and Sales.Customer tables. The PersonID will join to the BusinessEntityID. Be sure to run the query to populate the #Customers table.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">INSERT</span> <span class="n">INTO</span> <span class="c1">#Customers (CustomerID, FirstName, LastName)</span>
- <span class="n">SELECT</span> <span class="n">C</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">LastName</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">C</span> <span class="n">JOIN</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">P</span> <span class="n">ON</span> <span class="n">P</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">PersonID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> INSERT INTO #Customers (CustomerID, FirstName, LastName)
+ SELECT C.CustomerID, P.FirstName, P.LastName
+ FROM Sales.Customer AS C JOIN Person.Person AS P ON P.BusinessEntityID = C.PersonID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Add three new customers to the #Customers table. They can be any names you wish, but make sure that you do not duplicate the CustomerID column.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> SELECT MAX(CustomerID) AS MaxCustomerID FROM #Customers;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT MAX(CustomerID) AS MaxCustomerID FROM #Customers;
  --Answers will vary!
  INSERT INTO #Customers ( CustomerID, FirstName, LastName )
  VALUES (30119, &#39;Kathi&#39;,&#39;Morgan&#39;),
@@ -323,12 +323,12 @@
 </div>
 </li>
 <li><p class="first">Add an order for each of the new customers you added in 2.2. Make sure you do not duplicate existing SalesOrderID values. You can choose any date and total due you wish.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">MAX</span><span class="p">(</span><span class="n">SalesOrderID</span><span class="p">)</span> <span class="n">AS</span> <span class="n">MaxSalesOrderID</span> <span class="n">FROM</span> <span class="c1">#Sales;</span>
- <span class="o">--</span><span class="n">Answers</span> <span class="n">will</span> <span class="n">vary</span>
- <span class="n">INSERT</span> <span class="n">INTO</span> <span class="c1">#Sales( SalesOrderID, OrderDate, TotalDue, CustomerID)</span>
- <span class="n">VALUES</span> <span class="p">(</span><span class="mi">75124</span><span class="p">,</span><span class="s1">&#39;2015-08-31&#39;</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30119</span><span class="p">),</span>
-  <span class="p">(</span><span class="mi">75125</span><span class="p">,</span><span class="s1">&#39;2015-09-01&#39;</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">30120</span><span class="p">),</span>
-  <span class="p">(</span><span class="mi">75126</span><span class="p">,</span><span class="s1">&#39;2015-09-02&#39;</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30121</span><span class="p">);</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT MAX(SalesOrderID) AS MaxSalesOrderID FROM #Sales;
+ --Answers will vary
+ INSERT INTO #Sales( SalesOrderID, OrderDate, TotalDue, CustomerID)
+ VALUES (75124,&#39;2015-08-31&#39;,100,30119),
+  (75125,&#39;2015-09-01&#39;,200,30120),
+  (75126,&#39;2015-09-02&#39;,300,30121);
 </pre></div>
 </div>
 </li>
@@ -338,21 +338,21 @@
 <span id="exercise-3"></span><h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p class="first">Modify the #Sales rows so that every order below $10 is changed to $10.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">UPDATE</span> <span class="c1">#Sales</span>
- <span class="n">SET</span> <span class="n">TotalDue</span> <span class="o">=</span> <span class="mi">10</span>
- <span class="n">WHERE</span> <span class="n">TotalDue</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> UPDATE #Sales
+ SET TotalDue = 10
+ WHERE TotalDue &lt; 10;
 </pre></div>
 </div>
 </li>
 <li><p class="first">You can also use existing columns to modify data. Write a query that adds one day to every OrderDate in the #Sales table. Use the DATEADD function.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">UPDATE</span> <span class="c1">#Sales</span>
- <span class="n">SET</span> <span class="n">OrderDate</span> <span class="o">=</span> <span class="n">DATEADD</span><span class="p">(</span><span class="n">DAY</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">OrderDate</span><span class="p">);</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> UPDATE #Sales
+ SET OrderDate = DATEADD(DAY, 1, OrderDate);
 </pre></div>
 </div>
 </li>
 <li><p class="first">Delete any rows where the order was placed in 2011.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">DELETE</span> <span class="n">FROM</span> <span class="c1">#Sales</span>
- <span class="n">WHERE</span> <span class="n">OrderDate</span> <span class="o">&gt;=</span> <span class="s1">&#39;2011-01-01&#39;</span> <span class="n">AND</span> <span class="n">OrderDate</span> <span class="o">&lt;</span> <span class="s1">&#39;2012-01-01&#39;</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> DELETE FROM #Sales
+ WHERE OrderDate &gt;= &#39;2011-01-01&#39; AND OrderDate &lt; &#39;2012-01-01&#39;;
 </pre></div>
 </div>
 </li>
@@ -370,10 +370,15 @@
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/lessons/assignments/solutions/problemsetanswers12.md.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>

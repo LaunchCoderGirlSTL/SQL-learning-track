@@ -281,58 +281,58 @@
 problems. Here are suggested solutions.</p>
 <ol>
 <li><p class="first">Write a script that saves the count of rows in the SalesOrderHeader table in a variable. Then set up an <code class="docutils literal notranslate"><span class="pre">IF</span></code> block that prints “The count of sales is over 50,000” or “The count of sales is less than or equal to 50,000” based on the count.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">DECLARE</span> <span class="nd">@RowCount</span> <span class="n">INT</span><span class="p">;</span>
- <span class="n">SELECT</span> <span class="nd">@RowCount</span> <span class="o">=</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span><span class="p">;</span>
- <span class="n">IF</span> <span class="nd">@RowCount</span> <span class="o">&gt;</span> <span class="mi">50000</span> <span class="n">BEGIN</span>
- <span class="n">PRINT</span> <span class="s1">&#39;The count of sales is over 50,000.&#39;</span><span class="p">;</span>
- <span class="n">END</span>
- <span class="n">ELSE</span> <span class="n">BEGIN</span>
- <span class="n">PRINT</span> <span class="s1">&#39;The count of sales is less than or equal to 50,000&#39;</span><span class="p">;</span>
- <span class="n">END</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> DECLARE @RowCount INT;
+ SELECT @RowCount = COUNT(*)
+ FROM Sales.SalesOrderHeader;
+ IF @RowCount &gt; 50000 BEGIN
+ PRINT &#39;The count of sales is over 50,000.&#39;;
+ END
+ ELSE BEGIN
+ PRINT &#39;The count of sales is less than or equal to 50,000&#39;;
+ END;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a loop that runs 100 times. Print the current loop count. If the counter is divisible by 2(look up the modulo function %) then print “The value is even”. If it is odd, print “The value is odd.”</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">DECLARE</span> <span class="nd">@Count</span> <span class="n">INT</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
- <span class="n">WHILE</span> <span class="nd">@Count</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="n">BEGIN</span>
- <span class="n">PRINT</span> <span class="nd">@Count</span>
- <span class="n">IF</span> <span class="nd">@Count</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">BEGIN</span>
- <span class="n">PRINT</span> <span class="s1">&#39;The value is even.&#39;</span><span class="p">;</span>
- <span class="n">END</span>
- <span class="n">ELSE</span> <span class="n">BEGIN</span>
- <span class="n">PRINT</span> <span class="s1">&#39;The value is odd.&#39;</span><span class="p">;</span>
- <span class="n">END</span>
- <span class="n">SET</span> <span class="nd">@Count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
- <span class="n">END</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> DECLARE @Count INT = 1;
+ WHILE @Count &lt;= 100 BEGIN
+ PRINT @Count
+ IF @Count % 2 = 0 BEGIN
+ PRINT &#39;The value is even.&#39;;
+ END
+ ELSE BEGIN
+ PRINT &#39;The value is odd.&#39;;
+ END
+ SET @Count += 1;
+ END;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a script that contains nested <code class="docutils literal notranslate"><span class="pre">IF</span></code> blocks. The outer block should check to see whether the month is May or June. If it’s one of those months, then print “The month is “ plus the month. The inner block should check to see if the year is even. Print that information.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">IF</span> <span class="n">DATENAME</span><span class="p">(</span><span class="n">month</span><span class="p">,</span><span class="n">GETDATE</span><span class="p">())</span> <span class="n">IN</span> <span class="p">(</span><span class="s1">&#39;June&#39;</span><span class="p">,</span><span class="s1">&#39;May&#39;</span><span class="p">)</span> <span class="n">BEGIN</span>
- <span class="n">PRINT</span> <span class="s1">&#39;The month is &#39;</span> <span class="o">+</span> <span class="n">DATENAME</span><span class="p">(</span><span class="n">month</span><span class="p">,</span><span class="n">GETDATE</span><span class="p">());</span>
- <span class="n">IF</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">())</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">BEGIN</span>
- <span class="n">PRINT</span> <span class="s1">&#39;The year is even&#39;</span><span class="p">;</span>
- <span class="n">END</span>
- <span class="n">ELSE</span> <span class="n">BEGIN</span>
- <span class="n">PRINT</span> <span class="s1">&#39;The year is odd&#39;</span><span class="p">;</span>
- <span class="n">END</span>
- <span class="n">END</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> IF DATENAME(month,GETDATE()) IN (&#39;June&#39;,&#39;May&#39;) BEGIN
+ PRINT &#39;The month is &#39; + DATENAME(month,GETDATE());
+ IF YEAR(GETDATE()) % 2 = 0 BEGIN
+ PRINT &#39;The year is even&#39;;
+ END
+ ELSE BEGIN
+ PRINT &#39;The year is odd&#39;;
+ END
+ END;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Save the production.product table into a temp table. Set up a loop to delete one row at a time. Print the name of the product that is being deleted.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">INTO</span> <span class="c1">#Products</span>
- <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span><span class="p">;</span>
- <span class="n">DECLARE</span> <span class="nd">@ProductName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
- <span class="n">WHILE</span> <span class="n">EXISTS</span><span class="p">(</span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="c1">#Products) BEGIN</span>
- <span class="n">SELECT</span> <span class="nd">@ProductName</span> <span class="o">=</span> <span class="n">Name</span>
- <span class="n">FROM</span> <span class="c1">#Products;</span>
- <span class="n">PRINT</span> <span class="nd">@ProductName</span><span class="p">;</span>
- <span class="n">DELETE</span> <span class="n">FROM</span> <span class="c1">#Products</span>
- <span class="n">WHERE</span> <span class="n">Name</span> <span class="o">=</span> <span class="nd">@ProductName</span><span class="p">;</span>
- <span class="n">END</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT *
+ INTO #Products
+ FROM Production.Product;
+ DECLARE @ProductName NVARCHAR(50);
+ WHILE EXISTS(SELECT * FROM #Products) BEGIN
+ SELECT @ProductName = Name
+ FROM #Products;
+ PRINT @ProductName;
+ DELETE FROM #Products
+ WHERE Name = @ProductName;
+ END;
 </pre></div>
 </div>
 </li>
@@ -341,7 +341,7 @@ called WordNumber and a CHAR(1) column called Letter. Create a stored procedure 
 SplitWord that takes a parameter called &#64;Word varchar(50). This stored procedure should
 enter one row in the table for each letter in the word. Be sure to review functions that can
 help you write this proc. Here is an example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> Exec dbo.SplitWord @word = ‘apple’;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Exec dbo.SplitWord @word = ‘apple’;
  SELECT * FROM WordToLetters;
 
  DROP TABLE IF EXISTS WordToLetter;
@@ -392,10 +392,15 @@ help you write this proc. Here is an example:</p>
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/lessons/assignments/solutions/problemsetanswers13.md.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>

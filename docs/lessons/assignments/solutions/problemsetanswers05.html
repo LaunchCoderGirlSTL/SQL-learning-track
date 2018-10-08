@@ -286,30 +286,30 @@
 <span id="exercise-1"></span><h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p class="first">Write a query that returns the JobTitle, Birtdate, first and last names. Join the HumanResources.Employee table to the Person.Person table. In this case, you can join on the BusinessEntityID column from both tables.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">E</span><span class="o">.</span><span class="n">JobTitle</span><span class="p">,</span> <span class="n">E</span><span class="o">.</span><span class="n">BirthDate</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">LastName</span> <span class="n">FROM</span> <span class="n">HumanResources</span><span class="o">.</span><span class="n">Employee</span> <span class="n">AS</span> <span class="n">E</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">P</span> <span class="n">ON</span>
- <span class="n">E</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">BusinessEntityID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT E.JobTitle, E.BirthDate, P.FirstName, P.LastName FROM HumanResources.Employee AS E
+ INNER JOIN Person.Person AS P ON
+ E.BusinessEntityID = P.BusinessEntityID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Customers can be joined to the Person table by the PersonID from the Sales.Customer table to the BuisinessEntityID from the Person.Person table. Join the tables and return the CustomerID, TerritoryID, first, last and middle names.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">C</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">TerritoryID</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">MiddleName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">LastName</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">C</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">P</span>
- <span class="n">ON</span> <span class="n">C</span><span class="o">.</span><span class="n">PersonID</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">BusinessEntityID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT C.CustomerID, C.StoreID, C.TerritoryID, P.FirstName, P.MiddleName, P.LastName
+ FROM Sales.Customer AS C INNER JOIN Person.Person AS P
+ ON C.PersonID = P.BusinessEntityID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Join the Sales.SalesOrderDetail table to the Production.Product table on ProductID. Return a list containing the SalesOrderID, ProductID, OrderQty, and product names.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">OrderQty</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">Name</span>        
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">P</span>
- <span class="n">ON</span> <span class="n">P</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT SOD.SalesOrderID, P.ProductID, SOD.OrderQty, P.Name        
+ FROM Sales.SalesOrderDetail AS SOD INNER JOIN Production.Product AS P
+ ON P.ProductID = SOD.ProductID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Join the HumanResources.JobCandidate table to the Person.Person table by BusinessEntityID. Return the first, middle and last names along with the JobCandidateID column.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">P</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">MiddleName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span> <span class="n">JC</span><span class="o">.</span><span class="n">JobCandidateID</span>
- <span class="n">FROM</span> <span class="n">HumanResources</span><span class="o">.</span><span class="n">JobCandidate</span> <span class="n">AS</span> <span class="n">JC</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">P</span>
- <span class="n">ON</span> <span class="n">P</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">JC</span><span class="o">.</span><span class="n">BusinessEntityID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT P.FirstName, P.MiddleName, P.LastName, JC.JobCandidateID
+ FROM HumanResources.JobCandidate AS JC INNER JOIN Person.Person AS P
+ ON P.BusinessEntityID = JC.BusinessEntityID;
 </pre></div>
 </div>
 </li>
@@ -319,28 +319,28 @@
 <span id="exercise-2"></span><h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p class="first">Change the query found in question 1.3 so that it includes the order date. HINT: You will have to join to one more table.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">OrderQty</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">Name</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">P</span>
- <span class="n">ON</span> <span class="n">P</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span>
- <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span> <span class="o">=</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT SOD.SalesOrderID, SOH.OrderDate, P.ProductID, SOD.OrderQty, P.Name
+ FROM Sales.SalesOrderDetail AS SOD INNER JOIN Production.Product AS P
+ ON P.ProductID = SOD.ProductID INNER JOIN Sales.SalesOrderHeader AS SOH
+ ON SOH.SalesOrderID = SOD.SalesOrderID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a query that produces a list of the customer names and their SalesOrderID numbers. You will have to join three tables: Person.Person, Sales.Customer, and Sales.SalesOrderHeader.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">P</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">C</span>
- <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">CustomerID</span> <span class="n">JOIN</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">P</span>
- <span class="n">ON</span> <span class="n">P</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">PersonID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT P.FirstName, P.LastName, SOH.SalesOrderID
+ FROM Sales.SalesOrderHeader AS SOH JOIN Sales.Customer AS C
+ ON SOH.CustomerID = C.CustomerID JOIN Person.Person AS P
+ ON P.BusinessEntityID = C.PersonID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a query that returns the list of employees and their current department. To do this, you will have to join the HumanResources.Employee table to the HumanResources.EmployeeDepartmentHistory table and the HumanResources.Department table. You must also return rows where the EndDate from the history table is NULL to get the latest data. Include BusinessEntityID, job title and department name in the results.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">E</span><span class="o">.</span><span class="n">BusinessEntityID</span><span class="p">,</span> <span class="n">E</span><span class="o">.</span><span class="n">JobTitle</span><span class="p">,</span>
- <span class="n">D</span><span class="o">.</span><span class="n">Name</span>
- <span class="n">FROM</span> <span class="n">HumanResources</span><span class="o">.</span><span class="n">Employee</span> <span class="n">AS</span> <span class="n">E</span>
- <span class="n">JOIN</span> <span class="n">HumanResources</span><span class="o">.</span><span class="n">EmployeeDepartmentHistory</span> <span class="n">AS</span> <span class="n">H</span>
- <span class="n">ON</span> <span class="n">H</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">E</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="n">JOIN</span> <span class="n">HumanResources</span><span class="o">.</span><span class="n">Department</span> <span class="n">AS</span> <span class="n">D</span>
- <span class="n">ON</span> <span class="n">D</span><span class="o">.</span><span class="n">DepartmentID</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">DepartmentID</span> <span class="n">WHERE</span> <span class="n">H</span><span class="o">.</span><span class="n">EndDate</span> <span class="n">IS</span> <span class="n">NULL</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT E.BusinessEntityID, E.JobTitle,
+ D.Name
+ FROM HumanResources.Employee AS E
+ JOIN HumanResources.EmployeeDepartmentHistory AS H
+ ON H.BusinessEntityID = E.BusinessEntityID JOIN HumanResources.Department AS D
+ ON D.DepartmentID = H.DepartmentID WHERE H.EndDate IS NULL;
 </pre></div>
 </div>
 </li>
@@ -350,23 +350,23 @@
 <span id="exercise-3"></span><h2>Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p class="first">Return a list of the ProductID and names along with the SalesOrderID. Include all products even if they have not been ordered.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">P</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span> <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">P</span>
- <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span>
- <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">ProductID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT P.ProductID, P.Name, SOD.SalesOrderID FROM Production.Product AS P
+ LEFT JOIN Sales.SalesOrderDetail AS SOD
+ ON SOD.ProductID = P.ProductID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write a query that returns a list of the names in the Person.Person table. If the individual also happens to be a customer, return the CustomerID. Join the PersonID to the BusinessEntityID.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">P</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">CustomerID</span> <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">P</span>
- <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">C</span>
- <span class="n">ON</span> <span class="n">C</span><span class="o">.</span><span class="n">PersonID</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">BusinessEntityID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT P.FirstName, P.LastName, C.CustomerID FROM Person.Person AS P
+ LEFT JOIN Sales.Customer AS C
+ ON C.PersonID = P.BusinessEntityID;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Modify the query from 3.2 to include the list of orders placed as well. Include SalesOrderID and OrderDate. Make sure that none of the names drop out of the results.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">P</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">P</span> <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">C</span>
- <span class="n">ON</span> <span class="n">C</span><span class="o">.</span><span class="n">PersonID</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT P.FirstName, P.LastName, C.CustomerID, SalesOrderID, SOH.OrderDate
+ FROM Person.Person AS P LEFT JOIN Sales.Customer AS C
+ ON C.PersonID = P.BusinessEntityID LEFT JOIN Sales.SalesOrderHeader AS SOH ON SOH.CustomerID = C.CustomerID;
 </pre></div>
 </div>
 </li>
@@ -384,10 +384,15 @@
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/lessons/assignments/solutions/problemsetanswers05.md.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>

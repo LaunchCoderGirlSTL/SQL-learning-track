@@ -279,103 +279,103 @@
 <span id="week-16-problem-set-solutions"></span><h1>Week 16 Problem Set Solutions<a class="headerlink" href="#week-16-problem-set-solutions" title="Permalink to this headline">¶</a></h1>
 <ol>
 <li><p class="first">Write a scalar function that returns the result of two integers multiplied together.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">DROP</span> <span class="n">FUNCTION</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_Multiply</span><span class="p">;</span>
- <span class="n">GO</span>
- <span class="n">CREATE</span> <span class="n">FUNCTION</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_Multiply</span><span class="p">(</span><span class="nd">@Val1</span> <span class="n">INT</span><span class="p">,</span> <span class="nd">@Val2</span> <span class="n">INT</span><span class="p">)</span>
- <span class="n">RETURNS</span> <span class="n">INT</span> <span class="n">AS</span>
- <span class="n">BEGIN</span>
- <span class="n">RETURN</span> <span class="nd">@Val1</span> <span class="o">*</span> <span class="nd">@Val2</span><span class="p">;</span>
- <span class="n">END</span><span class="p">;</span>
- <span class="n">GO</span>
- <span class="n">SELECT</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_Multiply</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">12</span><span class="p">);</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> DROP FUNCTION IF EXISTS dbo.udf_Multiply;
+ GO
+ CREATE FUNCTION dbo.udf_Multiply(@Val1 INT, @Val2 INT)
+ RETURNS INT AS
+ BEGIN
+ RETURN @Val1 * @Val2;
+ END;
+ GO
+ SELECT dbo.udf_Multiply(7,12);
 </pre></div>
 </div>
 </li>
 <li><p class="first">SQL Server 2016 and earlier has RTRIM and LTRIM functions which remove extra spaces from the right or left of a string respectively. Starting with SQL Server 2017, there is a new TRIM function which removes spaces from both sides. You are using SQL Server 2016, so create a scalar function called dbo.udf_Trim that has the functionality of the new TRIM function. It should be able to remove the spaces on either side of a 1000 character string.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">DROP</span> <span class="n">FUNCTION</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_TRIM</span><span class="p">;</span>
- <span class="n">GO</span>
- <span class="n">CREATE</span> <span class="n">FUNCTION</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_TRIM</span><span class="p">(</span><span class="nd">@String</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
- <span class="n">RETURNS</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="n">AS</span>
- <span class="n">BEGIN</span>
- <span class="n">SET</span> <span class="nd">@String</span> <span class="o">=</span> <span class="n">LTRIM</span><span class="p">(</span><span class="nd">@String</span><span class="p">);</span>
- <span class="n">SET</span> <span class="nd">@String</span> <span class="o">=</span> <span class="n">RTRIM</span><span class="p">(</span><span class="nd">@String</span><span class="p">);</span>
- <span class="n">RETURN</span> <span class="nd">@String</span><span class="p">;</span>
- <span class="n">END</span>
- <span class="n">GO</span>
- <span class="n">DECLARE</span> <span class="nd">@NewString</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39; abcde &#39;</span><span class="p">;</span>
- <span class="n">SELECT</span> <span class="nd">@NewString</span><span class="p">,</span> <span class="n">LEN</span><span class="p">(</span><span class="nd">@NewString</span><span class="p">),</span> <span class="n">LEN</span><span class="p">(</span><span class="n">dbo</span><span class="o">.</span><span class="n">udf_Trim</span><span class="p">(</span><span class="nd">@NewString</span><span class="p">));</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> DROP FUNCTION IF EXISTS dbo.udf_TRIM;
+ GO
+ CREATE FUNCTION dbo.udf_TRIM(@String NVARCHAR(1000))
+ RETURNS NVARCHAR(1000) AS
+ BEGIN
+ SET @String = LTRIM(@String);
+ SET @String = RTRIM(@String);
+ RETURN @String;
+ END
+ GO
+ DECLARE @NewString NVARCHAR(20) = &#39; abcde &#39;;
+ SELECT @NewString, LEN(@NewString), LEN(dbo.udf_Trim(@NewString));
 </pre></div>
 </div>
 </li>
 <li><p class="first">Function parameters can have default values. When a default is in place, providing a value for the parameter is optional, but you must specify the keyword default in place of the value. Create a scalar function that adds from 2 to 4 integers, the 3rd and 4th integers will have a default value of 0.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">DROP</span> <span class="n">FUNCTION</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_Add2to4Numbers</span>
- <span class="n">GO</span>
- <span class="n">CREATE</span> <span class="n">FUNCTION</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_Add2to4Numbers</span><span class="p">(</span><span class="nd">@Val1</span> <span class="n">INT</span><span class="p">,</span> <span class="nd">@Val2</span> <span class="n">INT</span><span class="p">,</span> <span class="nd">@Val3</span> <span class="n">INT</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nd">@Val4</span> <span class="n">INT</span> <span class="o">=</span>
- <span class="mi">0</span><span class="p">)</span>
- <span class="n">RETURNS</span> <span class="n">INT</span> <span class="n">AS</span>
- <span class="n">BEGIN</span>
- <span class="n">RETURN</span> <span class="nd">@Val1</span> <span class="o">+</span> <span class="nd">@Val2</span> <span class="o">+</span> <span class="nd">@Val3</span> <span class="o">+</span> <span class="nd">@Val4</span><span class="p">;</span>
- <span class="n">END</span><span class="p">;</span>
- <span class="n">GO</span>
- <span class="n">SELECT</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_Add2to4Numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="n">default</span><span class="p">);</span>
- <span class="n">SELECT</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udf_Add2to4Numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="n">default</span><span class="p">,</span><span class="n">default</span><span class="p">);</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> DROP FUNCTION IF EXISTS dbo.udf_Add2to4Numbers
+ GO
+ CREATE FUNCTION dbo.udf_Add2to4Numbers(@Val1 INT, @Val2 INT, @Val3 INT = 0, @Val4 INT =
+ 0)
+ RETURNS INT AS
+ BEGIN
+ RETURN @Val1 + @Val2 + @Val3 + @Val4;
+ END;
+ GO
+ SELECT dbo.udf_Add2to4Numbers(10,20,30,default);
+ SELECT dbo.udf_Add2to4Numbers(5,7, default,default);
 </pre></div>
 </div>
 </li>
 <li><p class="first">Create a view for the following query:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">Store</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderYear</span><span class="p">,</span> <span class="n">SUM</span><span class="p">(</span><span class="n">TotalDue</span><span class="p">)</span> <span class="n">AS</span> <span class="n">TotalSales</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Store</span> <span class="n">AS</span> <span class="n">Store</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span> <span class="n">ON</span> <span class="n">Store</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">Store</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">);</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> SELECT Cust.StoreID, Store.Name, YEAR(OrderDate) AS OrderYear, SUM(TotalDue) AS TotalSales
+ FROM Sales.Store AS Store
+ INNER JOIN Sales.Customer AS Cust ON Store.BusinessEntityID = Cust.StoreID
+ INNER JOIN Sales.SalesOrderHeader AS SOH ON SOH.CustomerID = Cust.CustomerID
+ GROUP BY Cust.StoreID, Store.Name, YEAR(OrderDate);
 
- <span class="n">DROP</span> <span class="n">VIEW</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">dbo</span><span class="o">.</span><span class="n">vwStoreSalesByYear</span><span class="p">;</span>
- <span class="n">GO</span>
- <span class="n">CREATE</span> <span class="n">VIEW</span> <span class="n">dbo</span><span class="o">.</span><span class="n">vwStoreSalesByYear</span> <span class="n">AS</span>
- <span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">Store</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderYear</span><span class="p">,</span>
-  <span class="n">SUM</span><span class="p">(</span><span class="n">TotalDue</span><span class="p">)</span> <span class="n">AS</span> <span class="n">TotalSales</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Store</span> <span class="n">AS</span> <span class="n">Store</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span> <span class="n">ON</span> <span class="n">Store</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">Store</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">);</span>
- <span class="n">GO</span>
- <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">dbo</span><span class="o">.</span><span class="n">vwStoreSalesByYear</span><span class="p">;</span>
+ DROP VIEW IF EXISTS dbo.vwStoreSalesByYear;
+ GO
+ CREATE VIEW dbo.vwStoreSalesByYear AS
+ SELECT Cust.StoreID, Store.Name, YEAR(OrderDate) AS OrderYear,
+  SUM(TotalDue) AS TotalSales
+ FROM Sales.Store AS Store
+ INNER JOIN Sales.Customer AS Cust ON Store.BusinessEntityID = Cust.StoreID
+ INNER JOIN Sales.SalesOrderHeader AS SOH ON SOH.CustomerID = Cust.CustomerID
+ GROUP BY Cust.StoreID, Store.Name, YEAR(OrderDate);
+ GO
+ SELECT * FROM dbo.vwStoreSalesByYear;
 </pre></div>
 </div>
 </li>
 <li><p class="first">Add a WHERE clause to the query from question 4 so that it is filtered by StoreID Create an Inline table-valued function using the new query. Make sure that it has the &#64;StoreID parameter.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">DROP</span> <span class="n">FUNCTION</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udfStoreSalesByYear</span><span class="p">;</span>
- <span class="n">GO</span>
- <span class="n">CREATE</span> <span class="n">FUNCTION</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udfStoreSalesByYear</span><span class="p">(</span><span class="nd">@StoreID</span> <span class="n">INT</span><span class="p">)</span>
- <span class="n">RETURNS</span> <span class="n">TABLE</span>
- <span class="n">AS</span> <span class="n">RETURN</span><span class="p">(</span>
- <span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">Store</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderYear</span><span class="p">,</span> <span class="n">SUM</span><span class="p">(</span><span class="n">TotalDue</span><span class="p">)</span> <span class="n">AS</span>
- <span class="n">TotalSales</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Store</span> <span class="n">AS</span> <span class="n">Store</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span> <span class="n">ON</span> <span class="n">Store</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span>
- <span class="n">WHERE</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span> <span class="o">=</span> <span class="nd">@StoreID</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">Store</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span>
- <span class="p">)</span>
- <span class="n">GO</span>
- <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">dbo</span><span class="o">.</span><span class="n">udfStoreSalesByYear</span><span class="p">(</span><span class="mi">292</span><span class="p">);</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> DROP FUNCTION IF EXISTS dbo.udfStoreSalesByYear;
+ GO
+ CREATE FUNCTION dbo.udfStoreSalesByYear(@StoreID INT)
+ RETURNS TABLE
+ AS RETURN(
+ SELECT Cust.StoreID, Store.Name, YEAR(OrderDate) AS OrderYear, SUM(TotalDue) AS
+ TotalSales
+ FROM Sales.Store AS Store
+ INNER JOIN Sales.Customer AS Cust ON Store.BusinessEntityID = Cust.StoreID
+ INNER JOIN Sales.SalesOrderHeader AS SOH ON SOH.CustomerID = Cust.CustomerID
+ WHERE Cust.StoreID = @StoreID
+ GROUP BY Cust.StoreID, Store.Name, YEAR(OrderDate)
+ )
+ GO
+ SELECT * FROM dbo.udfStoreSalesByYear(292);
 </pre></div>
 </div>
 </li>
 <li><p class="first">Create a stored procedure using the query from question 5.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">DROP</span> <span class="n">PROCEDURE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">dbo</span><span class="o">.</span><span class="n">usp_StoreSalesByYear</span><span class="p">;</span>
- <span class="n">GO</span>
- <span class="n">CREATE</span> <span class="n">PROCEDURE</span> <span class="n">dbo</span><span class="o">.</span><span class="n">usp_StoreSalesByYear</span> <span class="nd">@StoreID</span> <span class="n">INT</span>
- <span class="n">AS</span>
- <span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">Store</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span> <span class="n">AS</span> <span class="n">OrderYear</span><span class="p">,</span> <span class="n">SUM</span><span class="p">(</span><span class="n">TotalDue</span><span class="p">)</span> <span class="n">AS</span>
- <span class="n">TotalSales</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Store</span> <span class="n">AS</span> <span class="n">Store</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span> <span class="n">ON</span> <span class="n">Store</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span>
- <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span>
- <span class="n">WHERE</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span> <span class="o">=</span> <span class="nd">@StoreID</span>
- <span class="n">GROUP</span> <span class="n">BY</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span> <span class="n">Store</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">YEAR</span><span class="p">(</span><span class="n">OrderDate</span><span class="p">)</span>
- <span class="n">GO</span>
- <span class="n">EXEC</span> <span class="n">dbo</span><span class="o">.</span><span class="n">usp_StoreSalesByYear</span> <span class="nd">@StoreID</span> <span class="o">=</span> <span class="mi">292</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> DROP PROCEDURE IF EXISTS dbo.usp_StoreSalesByYear;
+ GO
+ CREATE PROCEDURE dbo.usp_StoreSalesByYear @StoreID INT
+ AS
+ SELECT Cust.StoreID, Store.Name, YEAR(OrderDate) AS OrderYear, SUM(TotalDue) AS
+ TotalSales
+ FROM Sales.Store AS Store
+ INNER JOIN Sales.Customer AS Cust ON Store.BusinessEntityID = Cust.StoreID
+ INNER JOIN Sales.SalesOrderHeader AS SOH ON SOH.CustomerID = Cust.CustomerID
+ WHERE Cust.StoreID = @StoreID
+ GROUP BY Cust.StoreID, Store.Name, YEAR(OrderDate)
+ GO
+ EXEC dbo.usp_StoreSalesByYear @StoreID = 292;
 </pre></div>
 </div>
 </li>
@@ -392,10 +392,15 @@
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/lessons/assignments/solutions/problemsetanswers11.md.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>

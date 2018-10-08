@@ -277,73 +277,73 @@
       
   <div class="section" id="week-3-problem-set-solutions">
 <span id="week-3-problem-set-solutions"></span><h1>Week 3 Problem Set Solutions<a class="headerlink" href="#week-3-problem-set-solutions" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">USE</span> <span class="n">AdventureWorks2014</span>
-<span class="n">GO</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>USE AdventureWorks2014
+GO
 
- <span class="o">--</span><span class="mi">1</span>
- <span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">JobTitle</span>
- <span class="n">FROM</span> <span class="n">HumanResources</span><span class="o">.</span><span class="n">Employee</span>
+ --1
+ SELECT DISTINCT JobTitle
+ FROM HumanResources.Employee
 
- <span class="o">--</span><span class="mi">2</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">ContactType</span>
- <span class="n">WHERE</span> <span class="n">Name</span> <span class="n">LIKE</span> <span class="s1">&#39;%Manager%&#39;</span>
+ --2
+ SELECT *
+ FROM Person.ContactType
+ WHERE Name LIKE &#39;%Manager%&#39;
 
- <span class="o">--</span><span class="mi">3</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">ContactType</span>
- <span class="n">WHERE</span> <span class="n">Name</span> <span class="n">LIKE</span> <span class="s1">&#39;%Market%&#39;</span>
- <span class="n">AND</span> <span class="n">Name</span> <span class="n">LIKE</span> <span class="s1">&#39;%Manager%&#39;</span>
+ --3
+ SELECT *
+ FROM Person.ContactType
+ WHERE Name LIKE &#39;%Market%&#39;
+ AND Name LIKE &#39;%Manager%&#39;
 
- <span class="o">--</span><span class="mi">4</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">ContactType</span>
- <span class="n">WHERE</span> <span class="n">Name</span> <span class="n">NOT</span> <span class="n">LIKE</span> <span class="s1">&#39;%Market%&#39;</span>
- <span class="n">AND</span> <span class="n">Name</span> <span class="n">NOT</span> <span class="n">LIKE</span> <span class="s1">&#39;%Manager%&#39;</span>
+ --4
+ SELECT *
+ FROM Person.ContactType
+ WHERE Name NOT LIKE &#39;%Market%&#39;
+ AND Name NOT LIKE &#39;%Manager%&#39;
 
- <span class="o">--</span><span class="mi">5</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">StateProvince</span>
- <span class="n">WHERE</span> <span class="n">Name</span> <span class="n">LIKE</span> <span class="s1">&#39;Al%&#39;</span>
- <span class="n">AND</span> <span class="n">CountryRegionCode</span> <span class="n">NOT</span> <span class="n">LIKE</span> <span class="s1">&#39;FR&#39;</span>
+ --5
+ SELECT *
+ FROM Person.StateProvince
+ WHERE Name LIKE &#39;Al%&#39;
+ AND CountryRegionCode NOT LIKE &#39;FR&#39;
 
- <span class="o">--</span><span class="mi">6</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span>
- <span class="n">WHERE</span> <span class="p">(</span><span class="n">FirstName</span> <span class="n">LIKE</span> <span class="s1">&#39;X%&#39;</span>
- <span class="n">AND</span> <span class="n">LastName</span> <span class="n">LIKE</span> <span class="s1">&#39;W%&#39;</span>
- <span class="n">AND</span> <span class="n">EmailPromotion</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span>
- <span class="n">OR</span> <span class="n">FirstName</span> <span class="n">LIKE</span> <span class="s1">&#39;Q%&#39;</span>
+ --6
+ SELECT *
+ FROM Person.Person
+ WHERE (FirstName LIKE &#39;X%&#39;
+ AND LastName LIKE &#39;W%&#39;
+ AND EmailPromotion &gt; 0 )
+ OR FirstName LIKE &#39;Q%&#39;
 
- <span class="o">--</span><span class="mi">7</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span>
- <span class="n">WHERE</span> <span class="p">(</span><span class="n">FirstName</span> <span class="n">LIKE</span> <span class="s1">&#39;Pat%&#39;</span> <span class="n">AND</span> <span class="n">PersonType</span> <span class="o">=</span> <span class="s1">&#39;SC&#39;</span><span class="p">)</span>
- <span class="n">OR</span> <span class="n">BusinessEntityID</span> <span class="o">&lt;</span> <span class="mi">10</span>
+ --7
+ SELECT *
+ FROM Person.Person
+ WHERE (FirstName LIKE &#39;Pat%&#39; AND PersonType = &#39;SC&#39;)
+ OR BusinessEntityID &lt; 10
 
- <span class="o">--</span><span class="mi">8</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span>
- <span class="n">WHERE</span> <span class="n">Suffix</span> <span class="n">IS</span> <span class="n">NOT</span> <span class="n">NULL</span>
- <span class="n">AND</span> <span class="n">Title</span> <span class="n">IS</span> <span class="n">NULL</span>
+ --8
+ SELECT *
+ FROM Person.Person
+ WHERE Suffix IS NOT NULL
+ AND Title IS NULL
 
- <span class="o">--</span><span class="mi">9</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesPerson</span>
- <span class="n">WHERE</span> <span class="p">(</span><span class="n">Bonus</span> <span class="o">&gt;</span> <span class="mi">4000</span> <span class="n">OR</span> <span class="n">SalesYTD</span> <span class="o">&gt;</span> <span class="mi">300000</span><span class="p">)</span>
- <span class="n">AND</span> <span class="n">CommissionPct</span> <span class="o">&gt;=</span> <span class="o">.</span><span class="mi">015</span>
+ --9
+ SELECT *
+ FROM Sales.SalesPerson
+ WHERE (Bonus &gt; 4000 OR SalesYTD &gt; 300000)
+ AND CommissionPct &gt;= .015
 
- <span class="o">--</span><span class="mi">10</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">sales</span><span class="o">.</span><span class="n">SalesPerson</span>
- <span class="n">WHERE</span> <span class="p">(</span><span class="n">SalesQuota</span> <span class="o">&lt;</span> <span class="mi">300000</span> <span class="n">OR</span> <span class="n">SalesQuota</span> <span class="n">IS</span> <span class="n">NULL</span><span class="p">)</span>
- <span class="n">AND</span> <span class="n">Bonus</span> <span class="o">&lt;</span> <span class="mi">2500</span>
+ --10
+ SELECT *
+ FROM sales.SalesPerson
+ WHERE (SalesQuota &lt; 300000 OR SalesQuota IS NULL)
+ AND Bonus &lt; 2500
  
- <span class="o">--</span><span class="mi">11</span>
- <span class="n">SELECT</span> <span class="o">*</span>
- <span class="n">FROM</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span>
- <span class="n">WHERE</span> <span class="p">(</span><span class="n">SafetyStockLevel</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="n">AND</span> <span class="n">Color</span> <span class="n">IS</span> <span class="n">NULL</span><span class="p">)</span>
- <span class="n">AND</span> <span class="p">(</span><span class="n">Name</span> <span class="n">LIKE</span> <span class="s1">&#39;%Pump&#39;</span> <span class="n">OR</span> <span class="n">Name</span> <span class="n">LIKE</span> <span class="s1">&#39;</span><span class="si">%c</span><span class="s1">age&#39;</span><span class="p">)</span>
+ --11
+ SELECT *
+ FROM Production.Product
+ WHERE (SafetyStockLevel &lt; 10 AND Color IS NULL)
+ AND (Name LIKE &#39;%Pump&#39; OR Name LIKE &#39;%cage&#39;)
 </pre></div>
 </div>
 </div>
@@ -358,10 +358,15 @@
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../../_sources/lessons/assignments/solutions/problemsetanswers03.md.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>

@@ -294,50 +294,50 @@
 <div class="section" id="prep-work">
 <h2>Prep Work<a class="headerlink" href="#prep-work" title="Permalink to this headline">¶</a></h2>
 <p>The join examples from Lesson 8 will be helpful with Lesson 9:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">AccountNumber</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span>
-      <span class="n">Pers</span><span class="o">.</span><span class="n">FirstName</span><span class="p">,</span> <span class="n">Pers</span><span class="o">.</span><span class="n">LastName</span><span class="p">,</span>
-      <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">OrderQty</span><span class="p">,</span>
-      <span class="n">Prod</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Color</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Size</span>
-<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">Prod</span> <span class="n">ON</span> <span class="n">Prod</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span>
-<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">Person</span><span class="o">.</span><span class="n">Person</span> <span class="n">AS</span> <span class="n">Pers</span> <span class="n">ON</span> <span class="n">Pers</span><span class="o">.</span><span class="n">BusinessEntityID</span> <span class="o">=</span> <span class="n">Cust</span><span class="o">.</span><span class="n">PersonID</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT Cust.CustomerID, Cust.AccountNumber, Cust.StoreID,
+      Pers.FirstName, Pers.LastName,
+      SOH.SalesOrderID, SOH.OrderDate, SOD.ProductID, SOD.OrderQty,
+      Prod.Name, Prod.Color, Prod.Size
+FROM Sales.Customer AS Cust
+INNER JOIN Sales.SalesOrderHeader AS SOH ON Cust.CustomerID = SOH.CustomerID
+INNER JOIN Sales.SalesOrderDetail AS SOD ON SOD.SalesOrderID = SOH.SalesOrderID
+INNER JOIN Production.Product AS Prod ON Prod.ProductID = SOD.ProductID
+INNER JOIN Person.Person AS Pers ON Pers.BusinessEntityID = Cust.PersonID
+ORDER BY Cust.CustomerID, SOH.SalesOrderID;
 
 
 
-<span class="o">--</span><span class="mi">19820</span>
-<span class="n">SELECT</span> <span class="o">*</span>
-<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span><span class="p">;</span>
+--19820
+SELECT *
+FROM Sales.Customer;
 
-<span class="o">--</span><span class="mi">19119</span>
-<span class="n">SELECT</span> <span class="n">distinct</span> <span class="n">CustomerID</span>
-<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span><span class="p">;</span>
+--19119
+SELECT distinct CustomerID
+FROM Sales.SalesOrderHeader;
 
-<span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">AccountNumber</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span>
-      <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span>
-<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+SELECT Cust.CustomerID, Cust.AccountNumber, Cust.StoreID,
+      SOH.SalesOrderID, SOH.OrderDate
+FROM Sales.Customer AS Cust
+LEFT JOIN Sales.SalesOrderHeader AS SOH ON Cust.CustomerID = SOH.CustomerID
+ORDER BY SOH.SalesOrderID;
 
-<span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">AccountNumber</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span>
-      <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span> <span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">OrderQty</span><span class="p">,</span>
-      <span class="n">PROD</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Color</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Size</span>
-<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">Prod</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">Prod</span><span class="o">.</span><span class="n">ProductID</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+SELECT Cust.CustomerID, Cust.AccountNumber, Cust.StoreID,
+      SOH.SalesOrderID, SOH.OrderDate , SOD.ProductID, SOD.OrderQty,
+      PROD.Name, Prod.Color, Prod.Size
+FROM Sales.Customer AS Cust
+LEFT JOIN Sales.SalesOrderHeader AS SOH ON Cust.CustomerID = SOH.CustomerID
+LEFT JOIN Sales.SalesOrderDetail AS SOD ON SOD.SalesOrderID = SOH.SalesOrderID
+LEFT JOIN Production.Product AS Prod ON SOD.ProductID = Prod.ProductID
+ORDER BY SOH.SalesOrderID;
 
-<span class="n">SELECT</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">AccountNumber</span><span class="p">,</span> <span class="n">Cust</span><span class="o">.</span><span class="n">StoreID</span><span class="p">,</span>
-      <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">,</span> <span class="n">SOH</span><span class="o">.</span><span class="n">OrderDate</span> <span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span><span class="p">,</span> <span class="n">SOD</span><span class="o">.</span><span class="n">OrderQty</span><span class="p">,</span>
-      <span class="n">PROD</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Color</span><span class="p">,</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Size</span>
-<span class="n">FROM</span> <span class="n">Sales</span><span class="o">.</span><span class="n">Customer</span> <span class="n">AS</span> <span class="n">Cust</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderHeader</span> <span class="n">AS</span> <span class="n">SOH</span> <span class="n">ON</span> <span class="n">Cust</span><span class="o">.</span><span class="n">CustomerID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">CustomerID</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Sales</span><span class="o">.</span><span class="n">SalesOrderDetail</span> <span class="n">AS</span> <span class="n">SOD</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">SalesOrderID</span> <span class="o">=</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">Production</span><span class="o">.</span><span class="n">Product</span> <span class="n">AS</span> <span class="n">Prod</span> <span class="n">ON</span> <span class="n">SOD</span><span class="o">.</span><span class="n">ProductID</span> <span class="o">=</span> <span class="n">Prod</span><span class="o">.</span><span class="n">ProductID</span> <span class="n">AND</span> <span class="n">Prod</span><span class="o">.</span><span class="n">Color</span> <span class="o">=</span> <span class="s1">&#39;Silver&#39;</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">SOH</span><span class="o">.</span><span class="n">SalesOrderID</span><span class="p">;</span>
+SELECT Cust.CustomerID, Cust.AccountNumber, Cust.StoreID,
+      SOH.SalesOrderID, SOH.OrderDate , SOD.ProductID, SOD.OrderQty,
+      PROD.Name, Prod.Color, Prod.Size
+FROM Sales.Customer AS Cust
+LEFT JOIN Sales.SalesOrderHeader AS SOH ON Cust.CustomerID = SOH.CustomerID
+LEFT JOIN Sales.SalesOrderDetail AS SOD ON SOD.SalesOrderID = SOH.SalesOrderID
+LEFT JOIN Production.Product AS Prod ON SOD.ProductID = Prod.ProductID AND Prod.Color = &#39;Silver&#39;
+ORDER BY SOH.SalesOrderID;
 </pre></div>
 </div>
 </div>
@@ -367,10 +367,15 @@
     <p class="pull-right">
       <a href="#">Back to top</a>
       
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/lessons/lesson09.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
     </p>
     <p>
-        &copy; Copyright 2018, LaunchCode.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.<br/>
     </p>
   </div>
 </footer>
