@@ -45,6 +45,7 @@ Resources
    :maxdepth: 1
 
    lessons/resources/sql_server_install
+   lessons/resources/connection_issues
 
 Solutions
 =========

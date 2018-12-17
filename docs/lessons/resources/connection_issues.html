@@ -201,7 +201,7 @@
 </ul>
 </li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sql_server_install.html">SQL Server Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sql_server_install.html#installation-of-sql-server-2016-developer-edition">Installation of SQL Server 2016 Developer Edition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql_server_install.html#installation-of-service-pack-1">Installation of Service Pack 1</a></li>
@@ -210,6 +210,10 @@
 <li class="toctree-l2"><a class="reference internal" href="sql_server_install.html#restore-the-adventureworks2014-database">Restore the AdventureWorks2014 database.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql_server_install.html#restore-the-northwind-database">Restore the Northwind Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql_server_install.html#installing-sql-server-data-tools">Installing SQL Server Data Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Connection Issues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cannot-connect-to-sql-server">Cannot connect to SQL Server</a></li>
 </ul>
 </li>
 </ul>
@@ -295,17 +299,17 @@
 <div class="section" id="cannot-connect-to-sql-server">
 <span id="cannot-connect-to-sql-server"></span><h2>Cannot connect to SQL Server<a class="headerlink" href="#cannot-connect-to-sql-server" title="Permalink to this headline">¶</a></h2>
 <p>You receive an error message that states that you cannot connect to localhost.
-<img alt="screenshot 1" src="../../_images/screenshot1.jpg" /></p>
+<img alt="The error message reads that a network-related or instance-specific error occurred and the server could not be found" src="../../_images/screenshot1.jpg" /></p>
 <div class="section" id="review-configuration-properties">
 <span id="review-configuration-properties"></span><h3>Review Configuration Properties<a class="headerlink" href="#review-configuration-properties" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li>Search for a program called <strong>SQL Server 2016 Configuration Manager</strong>. You may want to pin this program to your taskbar.
-<img alt="screenshot 2" src="../../_images/screenshot2.jpg" /></li>
+<img alt="Search for SQL Server 2016 Configuration Manager in the Windows taskbar" src="../../_images/screenshot2.jpg" /></li>
 <li>If you are asked if it is OK for this program to change settings on your computer, say OK.</li>
 <li>Click <strong>SQL Server Services</strong> to view the services installed. In my case, they are all shut down.
-<img alt="screenshot 3" src="../../_images/screenshot3.jpg" /></li>
+<img alt="SQL Server Services will be an option once the Configuration Manager is open. If the state of a services says it is stopped, that means that service is shut down" src="../../_images/screenshot3.jpg" /></li>
 <li>Find the service called <strong>SQL Server (instance name)</strong> in the list. I have two SQL Server instances. You will probably have just one.
-<img alt="screenshot 4" src="../../_images/screenshot4.jpg" /></li>
+<img alt="The two options for SQL Server (instance name) have been highlighted" src="../../_images/screenshot4.jpg" /></li>
 <li>Notice the names in the parentheses. These are the instance names. When you see MSSQLSERVER, that means the default instance. Anything else if a named instance. If you have a named instance, you will need that information when you connect.</li>
 </ol>
 </div>
@@ -313,9 +317,9 @@
 <span id="start-the-server"></span><h3>Start the Server<a class="headerlink" href="#start-the-server" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li>Right-click on the service and select <strong>Start</strong>.
-<img alt="screenshot 5" src="../../_images/screenshot5.jpg" /></li>
+<img alt="The service is called SQL Server (instance name) and Start is at the top of the menu" src="../../_images/screenshot5.jpg" /></li>
 <li>Once the SQL Server starts up, you should see the red square turn into a green arrow.
-<img alt="screenshot 6" src="../../_images/screenshot6.jpg" /></li>
+<img alt="The state of the service will change from stopped to running" src="../../_images/screenshot6.jpg" /></li>
 </ol>
 </div>
 <div class="section" id="determine-the-connection-name">
@@ -323,22 +327,22 @@
 <ol class="simple">
 <li>To connect to your SQL Server, you need to know the name. For a locally installed instance, you can use one of these instead of the computer name: <strong>localhost</strong>, <strong>(local)</strong>, or . .</li>
 <li>If you have a named instance, you will need to follow the computer name with a backslash and the instance name.
-<img alt="screenshot 7" src="../../_images/screenshot7.jpg" /></li>
+<img alt="For the named instance, it is localhost/name and if it is just default or MSSQLSERVER, it is just localhost" src="../../_images/screenshot7.jpg" /></li>
 </ol>
 </div>
 <div class="section" id="try-connecting-again">
 <span id="try-connecting-again"></span><h3>Try Connecting Again<a class="headerlink" href="#try-connecting-again" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li>To connect to SQL Server, launch <strong>SQL Server Management Studio</strong> (SSMS). Make sure that <strong>Database Engine</strong> and <strong>Windows Authentication</strong> are selected.
-<img alt="screenshot 8" src="../../_images/screenshot8.jpg" />
-<img alt="screenshot 9" src="../../_images/screenshot9.jpg" /></li>
+<img alt="The server name should match the appropriate naming above." src="../../_images/screenshot8.jpg" />
+<img alt="In this case, localhost/SSRS would be more appropriate." src="../../_images/screenshot9.jpg" /></li>
 </ol>
 </div>
 <div class="section" id="don-t-click-browse-for-more">
 <span id="don-t-click-browse-for-more"></span><h3>Don’t Click <code class="docutils literal notranslate"><span class="pre">&lt;Browse</span> <span class="pre">for</span> <span class="pre">More...&gt;</span></code><a class="headerlink" href="#don-t-click-browse-for-more" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li>Avoid clicking this option. It will try to browse for networks to find SQL Servers. It could take a long time.
-<img alt="screenshot 10" src="../../_images/screenshot10.jpg" /></li>
+<img alt="Browse for more is an option in the dropdown menu for server name" src="../../_images/screenshot10.jpg" /></li>
 </ol>
 </div>
 <div class="section" id="change-start-up-properties">
@@ -346,9 +350,9 @@
 <ol class="simple">
 <li>If you are concerned that SQL Server takes too many resources when you don’t need it, you can change the properties so that it just runs when you need it.</li>
 <li>Open the <strong>SQL Server Configuration Manager</strong>. Right-click on the service that you don’t want to start up automatically and select <strong>Properties</strong>.
-<img alt="screenshot 11" src="../../_images/screenshot11.jpg" /></li>
+<img alt="Properties is below Start in the menu" src="../../_images/screenshot11.jpg" /></li>
 <li>On the <strong>Service</strong> tab, change the <strong>Start Mode</strong> to <strong>Manual</strong>.
-<img alt="screenshot 12" src="../../_images/screenshot12.jpg" /></li>
+<img alt="Start Mode is below General in the Services tab" src="../../_images/screenshot12.jpg" /></li>
 <li>When you want to run SQL Server, you’ll have to launch <strong>Configuration Manager</strong> to start up the service.</li>
 </ol>
 </div>
