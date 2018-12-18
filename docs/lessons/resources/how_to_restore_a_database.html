@@ -201,7 +201,7 @@
 </ul>
 </li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="sql_server_install.html">SQL Server Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sql_server_install.html#installation-of-sql-server-2016-developer-edition">Installation of SQL Server 2016 Developer Edition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql_server_install.html#installation-of-service-pack-1">Installation of Service Pack 1</a></li>
@@ -214,6 +214,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="connection_issues.html">Connection Issues</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="connection_issues.html#cannot-connect-to-sql-server">Cannot connect to SQL Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to Restore a Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extract-a-zip-file">Extract a ZIP file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#launch-ssms">Launch SSMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connect-to-your-sql-server-instance">Connect to Your SQL Server Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performing-the-restore">Performing the Restore</a></li>
 </ul>
 </li>
 </ul>
@@ -299,17 +306,17 @@
 <div class="section" id="launch-ssms">
 <span id="launch-ssms"></span><h2>Launch SSMS<a class="headerlink" href="#launch-ssms" title="Permalink to this headline">¶</a></h2>
 <p>SSMS (SQL Server Management Studio) will be the main tool you will use in this course. Find it by typing SSMS in the Search window. It’s a great idea to pin SSMS to the taskbar so you can find it more easily later.
-<img alt="screenshot1" src="../../_images/screenshot13.jpg" /></p>
+<img alt="Search SSMS in the Windows taskbar" src="../../_images/screenshot13.jpg" /></p>
 </div>
 <div class="section" id="connect-to-your-sql-server-instance">
 <span id="connect-to-your-sql-server-instance"></span><h2>Connect to Your SQL Server Instance<a class="headerlink" href="#connect-to-your-sql-server-instance" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li>Connect to the instance of SQL Server that you installed. Usually this will be LOCALHOST. Make sure that Windows Authentication is selected. Click Connect.
-<img alt="screenshot2" src="../../_images/screenshot21.jpg" /></li>
+<img alt="Windows Authentication can be selected under the Authentication" src="../../_images/screenshot21.jpg" /></li>
 <li>If you have installed a named instance, you will need to supply the instance name after a backslash.
-<img alt="screenshot3" src="../../_images/screenshot31.jpg" /></li>
+<img alt="Make sure that the Server name is appropriate if you are using the default instance or a named instance" src="../../_images/screenshot31.jpg" /></li>
 <li>The Object Explorer will open on the left.
-<img alt="screenshot4" src="../../_images/screenshot41.jpg" /></li>
+<img alt="The Object Explorer is a menu" src="../../_images/screenshot41.jpg" /></li>
 </ol>
 </div>
 <div class="section" id="performing-the-restore">
@@ -317,17 +324,17 @@
 <ol class="simple">
 <li>Make a note of the location of the backup (BAK) file.</li>
 <li>In Object Explorer, right-click on Databases and select Restore Database.
-<img alt="screenshot5" src="../../_images/screenshot51.jpg" /></li>
+<img alt="Databases is at the top of the Object Explorer and Restore Database is the third item from the top" src="../../_images/screenshot51.jpg" /></li>
 <li>This opens the Restore Database dialog. Select Device and click the ellipsis.
-<img alt="screenshot6" src="../../_images/screenshot61.jpg" /></li>
+<img alt="Device is below Source and the ellipsis is next to Device" src="../../_images/screenshot61.jpg" /></li>
 <li>This pops up the Select backup devices dialog. Click Add and navigate to the bak file.
-<img alt="screenshot7" src="../../_images/screenshot71.jpg" /></li>
+<img alt="Add will be on the right-hand side of the Select backup devices dialog and click on the bak file" src="../../_images/screenshot71.jpg" /></li>
 <li>Select the file.</li>
 <li>Click OK three times to kick off the restore.</li>
 <li>Click OK to dismiss the dialog once the restore is complete.
-<img alt="screenshot8" src="../../_images/screenshot81.jpg" /></li>
+<img alt="The dialog says that the restore was completed successfully" src="../../_images/screenshot81.jpg" /></li>
 <li>You should now see the new database in the Object Explorer.
-<img alt="screenshot9" src="../../_images/screenshot91.jpg" /></li>
+<img alt="The new database appears below the other databases under the Database tab in the Object Explorer" src="../../_images/screenshot91.jpg" /></li>
 </ol>
 </div>
 </div>

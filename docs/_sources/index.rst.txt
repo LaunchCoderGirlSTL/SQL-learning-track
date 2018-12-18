@@ -46,6 +46,7 @@ Resources
 
    lessons/resources/sql_server_install
    lessons/resources/connection_issues
+   lessons/resources/how_to_restore_a_database
 
 Solutions
 =========
