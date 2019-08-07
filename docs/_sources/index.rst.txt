@@ -3,14 +3,6 @@ Course Overview
 
 SQL (Structured Query Language) is the most widely used tool for working with databases. This class will begin with the basics of SQL, and move toward advanced queries and reporting services. This track is for anyone interested in working with databases, including non-programmers looking to improve their business intelligence skills or programmers looking to build and manipulate databases for their applications.
 
-About Us
-========
-
-.. toctree::
-   :maxdepth: 1
-
-   about
-
 Lessons
 =======
 
@@ -65,3 +57,11 @@ Solutions
    lessons/assignments/solutions/problemsetanswers10
    lessons/assignments/solutions/problemsetanswers11
    lessons/assignments/solutions/problemsetanswers12
+
+About Us
+========
+
+.. toctree::
+   :maxdepth: 1
+
+   about

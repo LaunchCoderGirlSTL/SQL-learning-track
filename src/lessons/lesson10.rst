@@ -28,7 +28,7 @@ Assignments
 
 Watch videos and do problem set in the folder.
 
-Read this `article <https://www.mssqltips.com/sqlservertip/1387/union-vs-union-all-in-sql-server//>`_ on ``UNION`` and ``UNION ALL`` and this `article <https://www.mssqltips.com/sqlservertip/1327/compare-sql-server-datasets-with-intersect-and-except//>`_ on ``INTERSECT`` and ``EXCEPT``.
+Read this `UNION vs. UNION ALL in SQL Server <https://www.mssqltips.com/sqlservertip/1387/union-vs-union-all-in-sql-server/>`_ and `Compare SQL Server Datasets with INTERSECT and EXCEPT <https://www.mssqltips.com/sqlservertip/1327/compare-sql-server-datasets-with-intersect-and-except/>`_.
 
 .. toctree::
    :maxdepth: 1
